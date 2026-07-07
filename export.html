@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export — Victoria Sugar Limited</title>
+  <meta name="description" content="Export Markets — Victoria Sugar Limited">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Global Trade</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Export Markets</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Exporting Uganda's finest sugar, alcohol, and ethanol to 10+ markets across Africa and beyond.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Export Markets</nav>
+  </div>
+</div>
+<section class="section">
+  <div class="container-main max-w-4xl">
+    <span class="section-label">International Trade</span>
+    <h2 class="section-title">Our Export Footprint</h2>
+    <p style="color:#6b7280;line-height:1.8;margin-bottom:2rem;">Victoria Sugar exports to more than 10 countries across sub-Saharan Africa and beyond. Our products meet international import standards, including EU food safety requirements, making them eligible for a wide range of markets.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
+      <div class="card p-4 text-center"><div style="font-size:1.5rem;margin-bottom:.5rem;">🇰🇪</div><p style="font-weight:500;color:#374151;font-size:.875rem;">Kenya</p></div>
+      <div class="card p-4 text-center"><div style="font-size:1.5rem;margin-bottom:.5rem;">🇹🇿</div><p style="font-weight:500;color:#374151;font-size:.875rem;">Tanzania</p></div>
+      <div class="card p-4 text-center"><div style="font-size:1.5rem;margin-bottom:.5rem;">🇷🇼</div><p style="font-weight:500;color:#374151;font-size:.875rem;">Rwanda</p></div>
+      <div class="card p-4 text-center"><div style="font-size:1.5rem;margin-bottom:.5rem;">🇧🇮</div><p style="font-weight:500;color:#374151;font-size:.875rem;">Burundi</p></div>
+      <div class="card p-4 text-center"><div style="font-size:1.5rem;margin-bottom:.5rem;">🇸🇸</div><p style="font-weight:500;color:#374151;font-size:.875rem;">South Sudan</p></div>
+      <div class="card p-4 text-center"><div style="font-size:1.5rem;margin-bottom:.5rem;">🌍</div><p style="font-weight:500;color:#374151;font-size:.875rem;">+5 More Markets</p></div>
+    </div>
+    <div class="card p-8">
+      <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0f3d12;margin-bottom:1rem;">Export Enquiries</h3>
+      <p style="color:#6b7280;font-size:.875rem;line-height:1.7;margin-bottom:1.5rem;">For export pricing, shipping terms, certificates of origin, and compliance documentation, please contact our export team.</p>
+      <div class="flex gap-4 flex-wrap">
+        <button onclick="window.dispatchEvent(new CustomEvent('open-inquiry-modal'))" class="btn-primary">Send Export Inquiry</button>
+        <a href="mailto:export@victoriasugar.com" class="btn-secondary">export@victoriasugar.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();</script>
+</body></html>

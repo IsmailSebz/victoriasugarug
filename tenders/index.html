@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Tenders — Victoria Sugar Limited</title>
+  <meta name="description" content="Tenders & Procurement — Victoria Sugar Limited Uganda">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Procurement</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Tenders &amp; Procurement</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Open tenders, supply opportunities, and procurement notices from Victoria Sugar Limited.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Tenders</nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container-main">
+    <div class="mb-12">
+      <span class="section-label">Currently Open</span>
+      <h2 class="section-title mb-6">Open Tenders</h2>
+      <div id="open-tenders" class="space-y-4"></div>
+    </div>
+    <div class="mt-12 card p-6" style="background:#f9fafb;border:1px solid #f3f4f6;">
+      <h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Supplier Registration</h3>
+      <p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:1rem;">Are you interested in supplying goods or services to Victoria Sugar? Register your company as a potential supplier.</p>
+      <button onclick="window.dispatchEvent(new CustomEvent('open-inquiry-modal'))" class="btn-primary text-sm">Register as Supplier</button>
+    </div>
+    <div class="mt-10">
+      <span class="section-label">Archive</span>
+      <h2 class="section-title mb-6">Closed Tenders</h2>
+      <div id="closed-tenders" class="space-y-3"></div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();
+
+async function loadTenders() {
+  const open = document.getElementById('open-tenders');
+  const closed = document.getElementById('closed-tenders');
+  const now = new Date().toISOString();
+  const { data: openData } = await db.from('tenders').select('*').gte('deadline', now).order('deadline', {ascending: true});
+  const { data: closedData } = await db.from('tenders').select('*').lt('deadline', now).order('deadline', {ascending: false}).limit(5);
+  function renderTender(t, isOpen) {
+    const dl = t.deadline ? new Date(t.deadline) : null;
+    return '<div class="card p-6">' +
+      '<div style="display:flex;align-items:start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
+      '<div style="flex:1;">' +
+      '<span style="font-size:.6875rem;font-weight:600;color:' + (isOpen ? '#1b5e20' : '#6b7280') + ';background:' + (isOpen ? '#f0f7f1' : '#f3f4f6') + ';padding:.25rem .625rem;border-radius:2rem;text-transform:uppercase;">' + (isOpen ? 'Open' : 'Closed') + '</span>' +
+      '<h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin:.5rem 0 .25rem;">' + t.title + '</h3>' +
+      '<p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:.5rem;">' + (t.description || '') + '</p>' +
+      (t.reference ? '<p style="font-size:.75rem;color:#9ca3af;">Ref: ' + t.reference + '</p>' : '') +
+      '</div>' +
+      '<div style="text-align:right;flex-shrink:0;">' +
+      (dl ? '<p style="font-size:.75rem;color:#6b7280;font-weight:500;">' + (isOpen ? 'Deadline: ' : 'Closed: ') + dl.toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) + '</p>' : '') +
+      (t.file_url && isOpen ? '<a href="' + t.file_url + '" target="_blank" class="btn-primary text-sm px-3 py-1.5 mt-2" style="display:inline-block;">Download</a>' : '') +
+      '</div></div></div>';
+  }
+  open.innerHTML = openData && openData.length ? openData.map(t => renderTender(t, true)).join('') : '<p class="text-gray-400 text-center py-6">No open tenders at this time. Check back soon.</p>';
+  closed.innerHTML = closedData && closedData.length ? closedData.map(t => renderTender(t, false)).join('') : '<p class="text-gray-400 text-center py-4">No recent closed tenders.</p>';
+}
+loadTenders();
+
+</script>
+</body></html>

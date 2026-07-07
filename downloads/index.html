@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Downloads — Victoria Sugar Limited</title>
+  <meta name="description" content="Downloads — Victoria Sugar Limited Documents & Resources">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Resources</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Downloads</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Brochures, certificates, data sheets, and company documents.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Downloads</nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container-main max-w-4xl">
+    <div id="dl-grid" class="space-y-4"></div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();
+
+async function loadDownloads() {
+  const grid = document.getElementById('dl-grid');
+  const { data } = await db.from('downloads').select('*').eq('published', true).order('created_at', {ascending: false});
+  if (!data || !data.length) { grid.innerHTML = '<p class="text-gray-400 text-center py-8">No downloads available yet.</p>'; return; }
+  grid.innerHTML = data.map(d =>
+    '<div class="card p-6 flex items-center gap-4">' +
+    '<div style="width:3.5rem;height:3.5rem;background:#f0f7f1;border-radius:.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+    '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' +
+    '</div>' +
+    '<div style="flex:1;">' +
+    '<h3 style="font-weight:600;color:#1f2937;margin-bottom:.125rem;">' + d.title + '</h3>' +
+    '<p style="color:#6b7280;font-size:.8125rem;">' + (d.description || '') + '</p>' +
+    '</div>' +
+    '<a href="' + d.file_url + '" target="_blank" download class="btn-primary text-sm px-4 py-2" style="flex-shrink:0;">Download</a>' +
+    '</div>'
+  ).join('');
+}
+loadDownloads();
+
+</script>
+</body></html>

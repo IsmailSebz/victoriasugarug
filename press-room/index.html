@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Press-Room — Victoria Sugar Limited</title>
+  <meta name="description" content="Press Room — Victoria Sugar Limited Official Press Releases">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Media Relations</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Press Room</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Official press releases, statements, and media resources from Victoria Sugar Limited.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Press Room</nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container-main">
+    <div class="flex items-end justify-between mb-10">
+      <div><span class="section-label">Official Statements</span><h2 class="section-title mb-0">Press Releases</h2></div>
+      <button onclick="window.dispatchEvent(new CustomEvent('open-inquiry-modal'))" class="btn-secondary text-sm px-4 py-2">Media Enquiry</button>
+    </div>
+    <div id="press-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();
+
+async function loadPress() {
+  const grid = document.getElementById('press-grid');
+  const { data } = await db.from('press_releases').select('*').eq('published', true).order('published_at', {ascending: false});
+  if (!data || !data.length) { grid.innerHTML = '<p class="text-gray-400 col-span-full text-center py-8">No press releases yet.</p>'; return; }
+  grid.innerHTML = data.map(p =>
+    '<div class="card p-6">' +
+    '<span style="font-size:.6875rem;font-weight:600;color:#c8a84b;text-transform:uppercase;">' + (p.category || 'Press Release') + '</span>' +
+    '<h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin:.25rem 0 .5rem;">' + p.title + '</h3>' +
+    '<p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:1rem;">' + (p.summary || '') + '</p>' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;">' +
+    '<span style="font-size:.75rem;color:#9ca3af;">' + (p.published_at ? new Date(p.published_at).toLocaleDateString('en-UG',{day:'numeric',month:'long',year:'numeric'}) : '') + '</span>' +
+    (p.file_url ? '<a href="' + p.file_url + '" target="_blank" class="btn-secondary text-sm px-3 py-1.5">Download PDF</a>' : '') +
+    '</div></div>'
+  ).join('');
+}
+loadPress();
+
+</script>
+</body></html>

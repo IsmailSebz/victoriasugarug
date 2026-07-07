@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Careers — Victoria Sugar Limited</title>
+  <meta name="description" content="Careers — Jobs at Victoria Sugar Limited Uganda">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Join Our Team</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Careers at Victoria Sugar</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Be part of Uganda's leading agro-industrial company. Explore open positions below.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Careers</nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container-main">
+    <!-- Culture Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+      <div class="card p-6 text-center">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">🌱</div>
+        <h4 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Growth</h4>
+        <p style="color:#6b7280;font-size:.875rem;">We invest in training, promotions, and career development for every employee.</p>
+      </div>
+      <div class="card p-6 text-center">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">🤝</div>
+        <h4 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Community</h4>
+        <p style="color:#6b7280;font-size:.875rem;">Join 3,000+ colleagues who are proud to contribute to Uganda's development.</p>
+      </div>
+      <div class="card p-6 text-center">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">⚖️</div>
+        <h4 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Fair Work</h4>
+        <p style="color:#6b7280;font-size:.875rem;">Competitive salaries, benefits, and a safe, respectful workplace for all.</p>
+      </div>
+    </div>
+
+    <!-- Job Listings -->
+    <div class="flex items-end justify-between mb-8">
+      <div><span class="section-label">Open Positions</span><h2 class="section-title mb-0">Current Vacancies</h2></div>
+      <select id="dept-filter" class="form-input" style="max-width:14rem;">
+        <option value="all">All Departments</option>
+        <option value="Agriculture">Agriculture</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Finance">Finance</option>
+        <option value="HR">Human Resources</option>
+        <option value="Operations">Operations</option>
+        <option value="Commercial">Commercial</option>
+        <option value="IT">Information Technology</option>
+        <option value="Admin">Administration</option>
+      </select>
+    </div>
+    <div id="jobs-grid" class="space-y-4"></div>
+
+    <div class="mt-14 card p-8 text-center" style="background:linear-gradient(135deg,#f0f7f1,#fdf9ec);">
+      <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Don't See Your Role?</h3>
+      <p style="color:#6b7280;margin-bottom:1.5rem;">Send us your CV and we'll keep it on file for future openings.</p>
+      <a href="mailto:hr@victoriasugar.com?subject=Unsolicited%20CV" class="btn-primary">Email Your CV</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();
+
+let selectedDept = 'all';
+
+async function loadJobs() {
+  const grid = document.getElementById('jobs-grid');
+  let q = db.from('job_listings').select('*').eq('active', true).order('created_at', {ascending: false});
+  if (selectedDept !== 'all') q = q.eq('department', selectedDept);
+  const { data } = await q;
+  if (!data || !data.length) { grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-400">No open positions in this department right now. Send your CV to hr@victoriasugar.com and we will keep it on file.</div>'; return; }
+  grid.innerHTML = data.map(j =>
+    '<div class="card p-6">' +
+    '<div style="display:flex;align-items:start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
+    '<div style="flex:1;">' +
+    '<span style="font-size:.6875rem;font-weight:600;color:#1b5e20;background:#f0f7f1;padding:.25rem .625rem;border-radius:2rem;text-transform:uppercase;">' + (j.department || 'General') + '</span>' +
+    '<h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin:.5rem 0 .25rem;">' + j.title + '</h3>' +
+    '<p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:.5rem;">' + (j.description || '') + '</p>' +
+    '<div style="display:flex;gap:.75rem;flex-wrap:wrap;">' +
+    (j.location ? '<span style="font-size:.75rem;color:#6b7280;">📍 ' + j.location + '</span>' : '') +
+    (j.type ? '<span style="font-size:.75rem;color:#6b7280;">⏱ ' + j.type + '</span>' : '') +
+    (j.closing_date ? '<span style="font-size:.75rem;color:#6b7280;">Closes: ' + new Date(j.closing_date).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) + '</span>' : '') +
+    '</div></div>' +
+    '<div style="flex-shrink:0;">' +
+    '<button onclick="applyJob('' + j.id + '','' + j.title.replace(/'/g,'') + '')" class="btn-primary text-sm px-4 py-2">Apply Now</button>' +
+    '</div></div></div>'
+  ).join('');
+}
+
+function applyJob(id, title) {
+  window.dispatchEvent(new CustomEvent('open-inquiry-modal'));
+  // Pre-select career subject
+  setTimeout(() => {
+    const s = document.querySelector('#inq-form select[name=subject]');
+    if (s) { for(let o of s.options) { if(o.value==='Career Inquiry') { o.selected=true; break; } } }
+    const m = document.querySelector('#inq-form textarea[name=message]');
+    if (m) m.value = 'I am interested in applying for the position of: ' + title + ' (Job ID: ' + id + ')';
+  }, 200);
+}
+
+document.getElementById('dept-filter').addEventListener('change', e => { selectedDept = e.target.value; loadJobs(); });
+loadJobs();
+
+</script>
+</body></html>

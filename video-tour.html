@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video-Tour — Victoria Sugar Limited</title>
+  <meta name="description" content="Video Tour — Victoria Sugar Limited Factory">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Virtual Visit</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Video Tour</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Take a virtual walk through our sugar factory, cane fields, and processing plant.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Video Tour</nav>
+  </div>
+</div>
+<section class="section">
+  <div class="container-main">
+    <div class="text-center mb-10">
+      <span class="section-label">See Us in Action</span>
+      <h2 class="section-title mx-auto">Inside Victoria Sugar</h2>
+      <p class="section-subtitle mx-auto text-center">From cane field to consumer — watch how we produce Uganda's finest sugar.</p>
+    </div>
+    <div style="max-width:56rem;margin:0 auto;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);aspect-ratio:16/9;cursor:pointer;" onclick="toggleVid()">
+      <video id="tour-vid" src="https://media.victoriasugar.ug/videos/intro-video.mp4"
+             style="width:100%;height:100%;object-fit:cover;" muted playsinline preload="metadata"
+             onended="vidEnded()"></video>
+      <div id="tour-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3);" onclick="toggleVid()">
+        <button style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mt-10 text-center">
+      <p style="color:#6b7280;margin-bottom:1.5rem;">Interested in visiting our factory in person? We welcome scheduled visits.</p>
+      <a href="/contact.html" class="btn-primary">Arrange a Visit</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();
+function toggleVid() {
+  var v = document.getElementById('tour-vid');
+  var o = document.getElementById('tour-overlay');
+  if (v.paused) { v.play(); o.style.opacity='0'; } else { v.pause(); o.style.opacity='1'; }
+}
+function vidEnded() { document.getElementById('tour-overlay').style.opacity='1'; }
+</script>
+</body></html>

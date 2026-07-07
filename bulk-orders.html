@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk-Orders — Victoria Sugar Limited</title>
+  <meta name="description" content="Bulk & Industrial Orders — Victoria Sugar Limited">
+  <link rel="icon" href="/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="container-main page-hero-content">
+    <span class="section-label">Trade &amp; Industry</span>
+    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Bulk &amp; Industrial Orders</h1>
+    <p style="color:#b4dab6;max-width:40rem;">Large-volume supply of sugar, ENA, and ethanol for manufacturers, distributors, and food processors.</p>
+    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Bulk Orders</nav>
+  </div>
+</div>
+<section class="section">
+  <div class="container-main">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div>
+        <span class="section-label">Wholesale Supply</span>
+        <h2 class="section-title">Reliable Supply for Your Business</h2>
+        <p style="color:#6b7280;line-height:1.8;margin-bottom:1.5rem;">Victoria Sugar is a trusted wholesale and bulk supplier to food &amp; beverage manufacturers, distributors, retailers, pharmaceutical companies, and industrial processors across Uganda and the region.</p>
+        <p style="color:#6b7280;line-height:1.8;margin-bottom:2rem;">We offer flexible packaging, consistent quality, competitive pricing, and reliable delivery schedules. Our products are available in standard and custom bulk configurations.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div class="card p-5"><h4 style="font-weight:600;color:#0f3d12;margin-bottom:.25rem;">Sugar</h4><p style="color:#6b7280;font-size:.875rem;">25 kg / 50 kg bags, bulk containers. Minimum order: 1 tonne.</p></div>
+          <div class="card p-5"><h4 style="font-weight:600;color:#0f3d12;margin-bottom:.25rem;">ENA</h4><p style="color:#6b7280;font-size:.875rem;">IBC tanks (1,000 L), drums (200 L), bulk tanker. Min: 1,000 L.</p></div>
+          <div class="card p-5"><h4 style="font-weight:600;color:#0f3d12;margin-bottom:.25rem;">Ethanol</h4><p style="color:#6b7280;font-size:.875rem;">Tanker trucks, drums. Minimum order: 5,000 L.</p></div>
+          <div class="card p-5"><h4 style="font-weight:600;color:#0f3d12;margin-bottom:.25rem;">Lead Time</h4><p style="color:#6b7280;font-size:.875rem;">Typically 3–7 business days depending on order size and location.</p></div>
+        </div>
+        <button onclick="window.dispatchEvent(new CustomEvent('open-inquiry-modal'))" class="btn-primary">Request a Quote</button>
+      </div>
+      <div class="card p-8">
+        <h3 style="font-family:Georgia,serif;font-size:1.375rem;font-weight:700;color:#0f3d12;margin-bottom:1.5rem;">Quick Inquiry Form</h3>
+        <form id="bulk-form">
+          <div style="margin-bottom:1rem;"><label class="form-label">Company Name *</label><input class="form-input" name="company" required></div>
+          <div style="margin-bottom:1rem;"><label class="form-label">Contact Name *</label><input class="form-input" name="name" required></div>
+          <div style="margin-bottom:1rem;"><label class="form-label">Email *</label><input type="email" class="form-input" name="email" required></div>
+          <div style="margin-bottom:1rem;"><label class="form-label">Product</label>
+            <select class="form-input" name="product">
+              <option>Sugar (Retail Grade)</option><option>Sugar (Industrial Grade)</option>
+              <option>Extra Natural Alcohol (ENA)</option><option>Ethanol (Fuel Grade)</option><option>Multiple Products</option>
+            </select></div>
+          <div style="margin-bottom:1rem;"><label class="form-label">Approximate Volume</label><input class="form-input" name="volume" placeholder="e.g. 10 tonnes / 5000 litres"></div>
+          <div style="margin-bottom:1.5rem;"><label class="form-label">Additional Notes</label><textarea class="form-input" name="notes" rows="3" placeholder="Delivery location, frequency, etc."></textarea></div>
+          <div id="bulk-msg" style="display:none;font-size:.875rem;margin-bottom:1rem;"></div>
+          <button type="submit" id="bulk-btn" class="btn-primary w-full justify-center">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div><div id="inquiry-modal"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/supabase-client.js"></script>
+<script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
+<script>initNav();initFooter();initInquiryModal();
+document.getElementById('bulk-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('bulk-btn');
+  const msg = document.getElementById('bulk-msg');
+  btn.disabled=true; btn.textContent='Sending...'; msg.style.display='none';
+  const fd = new FormData(e.target);
+  const subject = 'Bulk Order — ' + fd.get('product');
+  const message = 'Company: ' + fd.get('company') + ', Volume: ' + fd.get('volume') + ', Notes: ' + fd.get('notes');
+  const { error } = await db.from('inquiries').insert([{ name:fd.get('name'), email:fd.get('email'), subject, message, status:'new' }]);
+  if (error) { msg.style.color='#dc2626'; msg.textContent='Error submitting. Please call us directly.'; }
+  else { msg.style.color='#1b5e20'; msg.textContent='Inquiry received! Our commercial team will contact you within 24 hours.'; e.target.reset(); }
+  msg.style.display='block'; btn.disabled=false; btn.textContent='Submit Inquiry';
+});
+</script>
+</body></html>
