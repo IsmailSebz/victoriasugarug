@@ -17,19 +17,10 @@
 
 <!-- ── HERO ───────────────────────────────────────────────────────────── -->
 <section id="hero" class="relative overflow-hidden" style="min-height:90vh;display:flex;align-items:center;">
-  <!-- Background slides -->
-  <div id="hero-slides" style="position:absolute;inset:0;z-index:0;">
-    <div class="hero-slide active" style="position:absolute;inset:0;transition:opacity 1s;">
-      <img src="https://media.victoriasugar.ug/images/DJI_20251217122121_0858_D.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,41,12,.85) 0%,rgba(27,94,32,.6) 100%);"></div>
-    </div>
-    <div class="hero-slide" style="position:absolute;inset:0;transition:opacity 1s;opacity:0;">
-      <img src="https://media.victoriasugar.ug/images/DJI_20251217122314_0861_D.JPG" alt="" style="width:100%;height:100%;object-fit:cover;">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,41,12,.85) 0%,rgba(27,94,32,.6) 100%);"></div>
-    </div>
-    <div class="hero-slide" style="position:absolute;inset:0;transition:opacity 1s;opacity:0;">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a290c 0%,#145218 50%,#1b5e20 100%);"></div>
-    </div>
+  <!-- Background -->
+  <div id="hero-bg" style="position:absolute;inset:0;z-index:0;">
+    <img src="/hero-bg.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,41,12,.85) 0%,rgba(27,94,32,.6) 100%);"></div>
   </div>
 
   <!-- Content -->
@@ -50,12 +41,6 @@
     </div>
   </div>
 
-  <!-- Slide dots -->
-  <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:.5rem;">
-    <button class="hero-dot active" data-idx="0" style="width:.625rem;height:.625rem;border-radius:50%;background:#c8a84b;border:none;cursor:pointer;transition:all .2s;"></button>
-    <button class="hero-dot" data-idx="1" style="width:.625rem;height:.625rem;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:all .2s;"></button>
-    <button class="hero-dot" data-idx="2" style="width:.625rem;height:.625rem;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:all .2s;"></button>
-  </div>
 </section>
 
 <!-- ── STATS STRIP ──────────────────────────────────────────────────────── -->
@@ -457,18 +442,6 @@
 <script src="/js/inquiry-modal.js"></script>
 <script>
 initNav(); initFooter(); initInquiryModal();
-
-// ── Hero carousel ──────────────────────────────────────────────────────────
-let heroIdx = 0;
-const heroSlides = document.querySelectorAll('.hero-slide');
-const heroDots   = document.querySelectorAll('.hero-dot');
-function goHeroSlide(n) {
-  heroSlides[heroIdx].style.opacity = '0'; heroDots[heroIdx].style.background = 'rgba(255,255,255,.4)';
-  heroIdx = n;
-  heroSlides[heroIdx].style.opacity = '1'; heroDots[heroIdx].style.background = '#c8a84b';
-}
-heroDots.forEach(d => d.addEventListener('click', () => goHeroSlide(+d.dataset.idx)));
-setInterval(() => goHeroSlide((heroIdx + 1) % heroSlides.length), 5000);
 
 // ── Intro video ────────────────────────────────────────────────────────────
 let videoPlaying = false;
