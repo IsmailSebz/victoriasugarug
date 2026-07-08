@@ -44,7 +44,7 @@
 </div>
 <div class="card" style="overflow:hidden;margin-bottom:2rem;">
   <table style="width:100%;border-collapse:collapse;" id="items-table">
-    <thead style="background:#f9fafb;"><tr><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Title</th><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Category</th><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Status</th><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Date</th><th style="padding:.5rem .75rem;"></th></tr></thead>
+    <thead style="background:#f9fafb;"><tr><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Title</th><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Status</th><th style="text-align:left;padding:.5rem .75rem;font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;">Date</th><th style="padding:.5rem .75rem;"></th></tr></thead>
     <tbody id="items-body"><tr><td colspan="5" style="text-align:center;padding:2rem;color:#9ca3af;">Loading...</td></tr></tbody>
   </table>
 </div>
@@ -56,12 +56,11 @@
     <form id="item-form">
       <input type="hidden" name="_id">
 <div style="margin-bottom:1rem;"><label class="form-label">Title *</label><input class="form-input" type="text" name="title" placeholder="Article title" required></div>
-<div style="margin-bottom:1rem;"><label class="form-label">Category</label><select class="form-input" name="category"><option value="Company News">Company News</option><option value="Agriculture">Agriculture</option><option value="Sustainability">Sustainability</option><option value="Community">Community</option><option value="Products">Products</option><option value="Events">Events</option></select></div>
 <div style="margin-bottom:1rem;"><label class="form-label">Excerpt</label><textarea class="form-input" name="excerpt" rows="2" ></textarea></div>
-<div style="margin-bottom:1rem;"><label class="form-label">Content (HTML)</label><textarea class="form-input" name="content" rows="8" ></textarea></div>
-<div style="margin-bottom:1rem;"><label class="form-label">Image URL</label><input class="form-input" type="text" name="image_url" placeholder="https://media.victoriasugar.ug/images/..." ></div>
-<div style="margin-bottom:1rem;"><label class="form-label">Publish Date</label><input class="form-input" type="date" name="published_at" placeholder="" ></div>
-<div style="margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;"><input type="checkbox" name="published" id="published" checked><label for="published" class="form-label" style="margin:0;">Published (visible on site)</label></div>
+<div style="margin-bottom:1rem;"><label class="form-label">Content (HTML)</label><textarea class="form-input" name="body_html" rows="8" ></textarea></div>
+<div style="margin-bottom:1rem;"><label class="form-label">Image URL</label><input class="form-input" type="text" name="cover_image_url" placeholder="https://media.victoriasugar.ug/images/..." ></div>
+<div style="margin-bottom:1rem;"><label class="form-label">Publish Date</label><input class="form-input" type="date" name="published_date" placeholder="" ></div>
+<div style="margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;"><input type="checkbox" name="is_published" id="is_published" checked><label for="is_published" class="form-label" style="margin:0;">Published (visible on site)</label></div>
       <div id="form-error" style="display:none;color:#dc2626;font-size:.875rem;margin-bottom:1rem;"></div>
       <div style="display:flex;gap:.75rem;">
         <button type="submit" id="form-submit" class="btn-primary flex-1 justify-center">Save</button>
@@ -97,15 +96,14 @@ document.getElementById("logout-btn").addEventListener("click", async () => { aw
 
 let editId = null;
 async function loadItems() {
-  const { data } = await dbAdmin.from('news_articles').select('id,title,category,published,published_at').order('created_at',{ascending:false});
+  const { data } = await dbAdmin.from('news').select('id,title,is_published,published_date').order('created_at',{ascending:false});
   const tb = document.getElementById('items-body');
-  if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:2rem;color:#9ca3af;">No articles yet.</td></tr>'; return; }
+  if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:2rem;color:#9ca3af;">No articles yet.</td></tr>'; return; }
   tb.innerHTML = data.map(a =>
     '<tr style="border-top:1px solid #f3f4f6;">' +
     '<td style="padding:.75rem;font-size:.875rem;color:#1f2937;font-weight:500;">' + a.title + '</td>' +
-    '<td style="padding:.75rem;font-size:.875rem;color:#6b7280;">' + (a.category||'') + '</td>' +
-    '<td style="padding:.75rem;"><span style="font-size:.6875rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;background:' + (a.published?'#f0f7f1':'#f3f4f6') + ';color:' + (a.published?'#1b5e20':'#6b7280') + ';">' + (a.published?'Published':'Draft') + '</span></td>' +
-    '<td style="padding:.75rem;font-size:.75rem;color:#9ca3af;">' + (a.published_at ? new Date(a.published_at).toLocaleDateString() : '') + '</td>' +
+    '<td style="padding:.75rem;"><span style="font-size:.6875rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;background:' + (a.is_published?'#f0f7f1':'#f3f4f6') + ';color:' + (a.is_published?'#1b5e20':'#6b7280') + ';">' + (a.is_published?'Published':'Draft') + '</span></td>' +
+    '<td style="padding:.75rem;font-size:.75rem;color:#9ca3af;">' + (a.published_date ? new Date(a.published_date).toLocaleDateString() : '') + '</td>' +
     '<td style="padding:.75rem;text-align:right;white-space:nowrap;">' +
     '<button onclick="editItem('' + a.id + '')" style="color:#1b5e20;font-size:.8125rem;font-weight:500;background:none;border:none;cursor:pointer;margin-right:.5rem;">Edit</button>' +
     '<button onclick="deleteItem('' + a.id + '')" style="color:#dc2626;font-size:.8125rem;font-weight:500;background:none;border:none;cursor:pointer;">Delete</button>' +
@@ -118,8 +116,8 @@ function openModal(data={}) {
   const form = document.getElementById('item-form');
   form.querySelectorAll('[name]').forEach(el => {
     const v = data[el.name];
-    if (el.type==='checkbox') el.checked = v !== undefined ? v : el.name==='published';
-    else if (el.name==='published_at') el.value = v ? v.split('T')[0] : new Date().toISOString().split('T')[0];
+    if (el.type==='checkbox') el.checked = v !== undefined ? v : el.name==='is_published';
+    else if (el.name==='published_date') el.value = v ? v.split('T')[0] : new Date().toISOString().split('T')[0];
     else el.value = v || '';
   });
   document.getElementById('modal-title').textContent = editId ? 'Edit Article' : 'Add Article';
@@ -130,13 +128,13 @@ function openModal(data={}) {
 function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
 
 async function editItem(id) {
-  const { data } = await dbAdmin.from('news_articles').select('*').eq('id', id).single();
+  const { data } = await dbAdmin.from('news').select('*').eq('id', id).single();
   openModal(data);
 }
 
 async function deleteItem(id) {
   if (!confirm('Delete this article? This cannot be undone.')) return;
-  await dbAdmin.from('news_articles').delete().eq('id', id);
+  await dbAdmin.from('news').delete().eq('id', id);
   loadItems();
 }
 
@@ -147,15 +145,15 @@ document.getElementById('item-form').addEventListener('submit', async e => {
   btn.disabled=true; btn.textContent='Saving...'; err.style.display='none';
   const fd = new FormData(e.target);
   const payload = {
-    title: fd.get('title'), category: fd.get('category'),
-    excerpt: fd.get('excerpt'), content: fd.get('content'),
-    image_url: fd.get('image_url') || null,
-    published_at: fd.get('published_at') ? new Date(fd.get('published_at')).toISOString() : new Date().toISOString(),
-    published: fd.get('published') === 'on'
+    title: fd.get('title'),
+    excerpt: fd.get('excerpt'), body_html: fd.get('body_html'),
+    cover_image_url: fd.get('cover_image_url') || null,
+    published_date: fd.get('published_date') ? new Date(fd.get('published_date')).toISOString() : new Date().toISOString(),
+    is_published: fd.get('is_published') === 'on'
   };
   const { error } = editId
-    ? await dbAdmin.from('news_articles').update(payload).eq('id', editId)
-    : await dbAdmin.from('news_articles').insert([payload]);
+    ? await dbAdmin.from('news').update(payload).eq('id', editId)
+    : await dbAdmin.from('news').insert([payload]);
   if (error) { err.textContent = error.message; err.style.display='block'; }
   else { closeModal(); loadItems(); }
   btn.disabled=false; btn.textContent='Save';

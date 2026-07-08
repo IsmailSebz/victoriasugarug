@@ -473,7 +473,7 @@ function toggleMute() {
 
 // ── Load news ──────────────────────────────────────────────────────────────
 async function loadNews() {
-  const { data, error } = await db.from('news_articles').select('*').eq('published', true).order('published_at', { ascending: false }).limit(3);
+  const { data, error } = await db.from('news').select('*').eq('is_published', true).order('published_date', { ascending: false }).limit(3);
   const el = document.getElementById('news-grid');
   if (error || !data || !data.length) {
     el.innerHTML = '<div class="col-span-full text-center py-8 text-gray-400">No news articles yet.</div>';
@@ -481,13 +481,13 @@ async function loadNews() {
   }
   el.innerHTML = data.map(a => `
     <a href="/news/article.html?id=${a.id}" class="card group" style="text-decoration:none;">
-      ${a.image_url ? `<div style="height:12rem;overflow:hidden;"><img src="${a.image_url}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105"></div>` : '<div style="height:12rem;background:linear-gradient(135deg,#f0f7f1,#d9edd9);display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>'}
+      ${a.cover_image_url ? `<div style="height:12rem;overflow:hidden;"><img src="${a.cover_image_url}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105"></div>` : '<div style="height:12rem;background:linear-gradient(135deg,#f0f7f1,#d9edd9);display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>'}
       <div style="padding:1.25rem;">
-        <span style="font-size:.6875rem;font-weight:600;color:#c8a84b;text-transform:uppercase;letter-spacing:.05em;">${a.category || 'News'}</span>
+        <span style="font-size:.6875rem;font-weight:600;color:#c8a84b;text-transform:uppercase;letter-spacing:.05em;">News</span>
         <h3 style="font-family:Georgia,serif;font-weight:700;font-size:1rem;color:#0f3d12;margin:.25rem 0 .5rem;line-height:1.4;" class="line-clamp-2">${a.title}</h3>
         <p style="color:#6b7280;font-size:.875rem;line-height:1.5;" class="line-clamp-2">${a.excerpt || ''}</p>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
-          <span style="font-size:.75rem;color:#9ca3af;">${a.published_at ? new Date(a.published_at).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) : ''}</span>
+          <span style="font-size:.75rem;color:#9ca3af;">${a.published_date ? new Date(a.published_date).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) : ''}</span>
           <span style="color:#1b5e20;font-size:.8125rem;font-weight:600;">Read more →</span>
         </div>
       </div>
@@ -496,12 +496,12 @@ async function loadNews() {
 
 // ── Load gallery preview ───────────────────────────────────────────────────
 async function loadGallery() {
-  const { data } = await db.from('gallery_items').select('id,image_url,caption').order('created_at',{ascending:false}).limit(8);
+  const { data } = await db.from('gallery_items').select('id,url,thumbnail_url,title').order('sort_order',{ascending:true}).limit(8);
   const el = document.getElementById('gallery-preview');
   if (!data || !data.length) { el.innerHTML = '<div class="col-span-full text-center py-8 text-gray-400">Gallery coming soon.</div>'; return; }
   el.innerHTML = data.map(item => `
     <div style="border-radius:.75rem;overflow:hidden;aspect-ratio:1;cursor:pointer;" onclick="window.location='/gallery/'">
-      <img src="${item.image_url}" alt="${item.caption || 'Gallery'}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">
+      <img src="${item.thumbnail_url || item.url}" alt="${item.title || 'Gallery'}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">
     </div>`).join('');
 }
 
