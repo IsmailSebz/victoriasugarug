@@ -208,23 +208,23 @@
         From our cane fields to our processing plant — watch how we bring Uganda's finest sugar to life.
       </p>
     </div>
-    <div id="video-wrapper" style="position:relative;border-radius:1rem;
+    <div id="video-wrapper-intro" style="position:relative;border-radius:1rem;
     overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);
     max-width:56rem;margin:0 auto;aspect-ratio:16/9;
     cursor:pointer;" onclick="toggleVideo('intro-video')">
       <video id="intro-video" src="https://media.victoriasugar.ug/videos/intro-video.mp4"
              style="width:100%;height:100%;object-fit:cover;" muted playsinline preload="metadata"
-             onended="videoEnded()"></video>
-      <div id="video-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:opacity .3s;">
-        <button id="play-btn" aria-label="Play" style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
-          <svg id="play-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <svg id="pause-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2" style="display:none;"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
+             onended="videoEnded('intro-video')"></video>
+      <div id="video-overlay-intro" style="position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:opacity .3s;">
+        <button id="play-btn-intro" aria-label="Play" style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
+          <svg id="play-icon-intro" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg id="pause-icon-intro" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2" style="display:none;"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
         </button>
       </div>
-      <button id="mute-btn" onclick="event.stopPropagation();toggleMute('intro-video')" aria-label="Mute"
+      <button id="mute-btn-intro" onclick="event.stopPropagation();toggleMute('intro-video')" aria-label="Mute"
               style="position:absolute;bottom:1rem;right:1rem;width:2.5rem;height:2.5rem;background:rgba(0,0,0,.5);border:none;border-radius:50%;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s;">
-        <svg id="mute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <svg id="unmute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <svg id="mute-icon-intro" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg id="unmute-icon-intro" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
       </button>
     </div>
     <br><br>
@@ -234,20 +234,20 @@
         Take a video tour of our cane fields, farms where we grow our finest quality sugar.
       </p>
     </div>
-    <div id="video-wrapper" style="position:relative;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);max-width:56rem;margin:0 auto;aspect-ratio:16/9;cursor:pointer;" onclick="toggleVideo()">
+    <div id="video-wrapper-tour" style="position:relative;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);max-width:56rem;margin:0 auto;aspect-ratio:16/9;cursor:pointer;" onclick="toggleVideo('tour-video')">
       <video id="tour-video" src="https://media.victoriasugar.ug/videos/VSL-Farms-Aerial-Tour.mp4"
              style="width:100%;height:100%;object-fit:cover;" muted playsinline preload="metadata"
-             onended="videoEnded()"></video>
-      <div id="video-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:opacity .3s;">
-        <button id="play-btn" aria-label="Play" style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
-          <svg id="play-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <svg id="pause-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2" style="display:none;"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
+             onended="videoEnded('tour-video')"></video>
+      <div id="video-overlay-tour" style="position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:opacity .3s;">
+        <button id="play-btn-tour" aria-label="Play" style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
+          <svg id="play-icon-tour" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg id="pause-icon-tour" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2" style="display:none;"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
         </button>
       </div>
-      <button id="mute-btn" onclick="event.stopPropagation();toggleMute('tour-video')" aria-label="Mute"
+      <button id="mute-btn-tour" onclick="event.stopPropagation();toggleMute('tour-video')" aria-label="Mute"
               style="position:absolute;bottom:1rem;right:1rem;width:2.5rem;height:2.5rem;background:rgba(0,0,0,.5);border:none;border-radius:50%;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s;">
-        <svg id="mute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <svg id="unmute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <svg id="mute-icon-tour" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <svg id="unmute-icon-tour" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
       </button>
     </div>
   </div>
@@ -263,8 +263,18 @@
       </div>
       <a href="/news/" class="btn-secondary text-sm px-4 py-2">All News</a>
     </div>
-    <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="col-span-full text-center py-12 text-gray-400">Loading latest news...</div>
+    <div class="carousel-container">
+      <button class="carousel-btn carousel-btn-prev" onclick="carouselNav('news-grid',-1)" aria-label="Previous news">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport">
+        <div id="news-grid" class="carousel-track">
+          <div class="text-center py-12 text-gray-400" style="flex:1;">Loading latest news...</div>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-btn-next" onclick="carouselNav('news-grid',1)" aria-label="Next news">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -279,8 +289,18 @@
       </div>
       <a href="/gallery/" class="btn-secondary text-sm px-4 py-2">Full Gallery</a>
     </div>
-    <div id="gallery-preview" class="gallery-grid">
-      <div class="col-span-full text-center py-8 text-gray-400" style="grid-column:1/-1;">Loading gallery...</div>
+    <div class="carousel-container">
+      <button class="carousel-btn carousel-btn-prev" onclick="carouselNav('gallery-preview',-1)" aria-label="Previous photos">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport">
+        <div id="gallery-preview" class="carousel-track">
+          <div class="text-center py-8 text-gray-400" style="flex:1;">Loading gallery...</div>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-btn-next" onclick="carouselNav('gallery-preview',1)" aria-label="Next photos">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -356,10 +376,11 @@ initNav(); initFooter(); initInquiryModal();
 // ── Intro video ────────────────────────────────────────────────────────────
 let videoPlaying = false;
 function toggleVideo(videodiv) {
+  const key = videodiv.replace('-video', '');
   const v = document.getElementById(videodiv);
-  const ov = document.getElementById('video-overlay');
-  const pi = document.getElementById('play-icon');
-  const pa = document.getElementById('pause-icon');
+  const ov = document.getElementById('video-overlay-' + key);
+  const pi = document.getElementById('play-icon-' + key);
+  const pa = document.getElementById('pause-icon-' + key);
   if (v.paused) {
     v.play(); videoPlaying = true;
     ov.style.opacity = '0'; pi.style.display = 'none'; pa.style.display = '';
@@ -368,17 +389,86 @@ function toggleVideo(videodiv) {
     ov.style.opacity = '1'; pi.style.display = ''; pa.style.display = 'none';
   }
 }
-function videoEnded() {
-  document.getElementById('video-overlay').style.opacity = '1';
-  document.getElementById('play-icon').style.display = '';
-  document.getElementById('pause-icon').style.display = 'none';
+function videoEnded(videodiv) {
+  const key = videodiv.replace('-video', '');
+  document.getElementById('video-overlay-' + key).style.opacity = '1';
+  document.getElementById('play-icon-' + key).style.display = '';
+  document.getElementById('pause-icon-' + key).style.display = 'none';
   videoPlaying = false;
 }
 function toggleMute(videodiv) {
+  const key = videodiv.replace('-video', '');
   const v = document.getElementById(videodiv);
   v.muted = !v.muted;
-  document.getElementById('mute-icon').style.display   = v.muted ? '' : 'none';
-  document.getElementById('unmute-icon').style.display = v.muted ? 'none' : '';
+  document.getElementById('mute-icon-' + key).style.display   = v.muted ? '' : 'none';
+  document.getElementById('unmute-icon-' + key).style.display = v.muted ? 'none' : '';
+}
+
+// ── Auto-sliding carousel (gallery + news), with manual prev/next ───────────
+function initCarousel(track) {
+  const n = track.children.length;
+  if (track._carouselTimer) clearInterval(track._carouselTimer);
+  if (n <= 1) return;
+
+  let animating = false;
+
+  function stepWidth() {
+    const first = track.children[0];
+    const marginRight = parseFloat(getComputedStyle(first).marginRight) || 0;
+    return first.getBoundingClientRect().width + marginRight;
+  }
+
+  function next() {
+    if (animating) return;
+    animating = true;
+    const w = stepWidth();
+    track.style.transition = 'transform .5s ease';
+    track.style.transform = `translateX(-${w}px)`;
+    track.addEventListener('transitionend', function handler() {
+      track.removeEventListener('transitionend', handler);
+      track.style.transition = 'none';
+      track.appendChild(track.firstElementChild);
+      track.style.transform = 'translateX(0)';
+      animating = false;
+    }, { once: true });
+  }
+
+  function prev() {
+    if (animating) return;
+    animating = true;
+    const w = stepWidth();
+    track.style.transition = 'none';
+    track.insertBefore(track.lastElementChild, track.firstElementChild);
+    track.style.transform = `translateX(-${w}px)`;
+    // force reflow so the browser applies the jump before animating back
+    void track.offsetHeight;
+    track.style.transition = 'transform .5s ease';
+    track.style.transform = 'translateX(0)';
+    track.addEventListener('transitionend', function handler() {
+      track.removeEventListener('transitionend', handler);
+      animating = false;
+    }, { once: true });
+  }
+
+  function restartAutoplay() {
+    if (track._carouselTimer) clearInterval(track._carouselTimer);
+    track._carouselTimer = setInterval(next, 2000);
+  }
+
+  track._carouselNext = next;
+  track._carouselPrev = prev;
+  track._carouselRestart = restartAutoplay;
+
+  track.style.transition = 'transform .5s ease';
+  track.style.transform = 'translateX(0)';
+  restartAutoplay();
+}
+
+function carouselNav(trackId, dir) {
+  const track = document.getElementById(trackId);
+  if (!track || !track._carouselNext) return;
+  if (dir > 0) track._carouselNext(); else track._carouselPrev();
+  track._carouselRestart();
 }
 
 // ── Load news ──────────────────────────────────────────────────────────────
@@ -390,7 +480,7 @@ async function loadNews() {
     return;
   }
   el.innerHTML = data.map(a => `
-    <a href="/news/article.html?id=${a.id}" class="card group" style="text-decoration:none;">
+    <a href="/news/article.html?id=${a.id}" class="card group news-slide" style="text-decoration:none;">
       ${a.cover_image_url ? `<div style="height:12rem;overflow:hidden;"><img src="${a.cover_image_url}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105"></div>` : '<div style="height:12rem;background:linear-gradient(135deg,#f0f7f1,#d9edd9);display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>'}
       <div style="padding:1.25rem;">
         <span style="font-size:.6875rem;font-weight:600;color:#c8a84b;text-transform:uppercase;letter-spacing:.05em;">News</span>
@@ -402,17 +492,19 @@ async function loadNews() {
         </div>
       </div>
     </a>`).join('');
+  initCarousel(el);
 }
 
 // ── Load gallery preview ───────────────────────────────────────────────────
 async function loadGallery() {
   const { data } = await db.from('gallery_items').select('id,url,thumbnail_url,title').order('sort_order',{ascending:true}).limit(8);
   const el = document.getElementById('gallery-preview');
-  if (!data || !data.length) { el.innerHTML = '<div class="col-span-full text-center py-8 text-gray-400">Gallery coming soon.</div>'; return; }
+  if (!data || !data.length) { el.innerHTML = '<div class="text-center py-8 text-gray-400" style="flex:1;">Gallery coming soon.</div>'; return; }
   el.innerHTML = data.map(item => `
-    <div style="border-radius:.75rem;overflow:hidden;aspect-ratio:1;cursor:pointer;" onclick="window.location='/gallery/'">
+    <div class="gallery-slide" style="border-radius:.75rem;overflow:hidden;aspect-ratio:1;cursor:pointer;" onclick="window.location='/gallery/'">
       <img src="${item.thumbnail_url || item.url}" alt="${item.title || 'Gallery'}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">
     </div>`).join('');
+  initCarousel(el);
 }
 
 // ── Newsletter ──────────────────────────────────────────────────────────────

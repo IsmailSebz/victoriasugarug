@@ -24,24 +24,7 @@
 
 <section class="section">
   <div class="container-main">
-    <!-- Culture Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-      <div class="card p-6 text-center">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">🌱</div>
-        <h4 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Growth</h4>
-        <p style="color:#6b7280;font-size:.875rem;">We invest in training, promotions, and career development for every employee.</p>
-      </div>
-      <div class="card p-6 text-center">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">🤝</div>
-        <h4 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Community</h4>
-        <p style="color:#6b7280;font-size:.875rem;">Join 3,000+ colleagues who are proud to contribute to Uganda's development.</p>
-      </div>
-      <div class="card p-6 text-center">
-        <div style="font-size:2.5rem;margin-bottom:1rem;">⚖️</div>
-        <h4 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.5rem;">Fair Work</h4>
-        <p style="color:#6b7280;font-size:.875rem;">Competitive salaries, benefits, and a safe, respectful workplace for all.</p>
-      </div>
-    </div>
+
 
     <!-- Job Listings -->
     <div class="flex items-end justify-between mb-8">
@@ -83,22 +66,26 @@ async function loadJobs() {
   if (selectedDept !== 'all') q = q.eq('department', selectedDept);
   const { data } = await q;
   if (!data || !data.length) { grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-400">No open positions in this department right now. Send your CV to hr@victoriasugar.com and we will keep it on file.</div>'; return; }
-  grid.innerHTML = data.map(j =>
-    '<div class="card p-6">' +
-    '<div style="display:flex;align-items:start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
-    '<div style="flex:1;">' +
-    '<span style="font-size:.6875rem;font-weight:600;color:#1b5e20;background:#f0f7f1;padding:.25rem .625rem;border-radius:2rem;text-transform:uppercase;">' + (j.department || 'General') + '</span>' +
-    '<h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin:.5rem 0 .25rem;">' + j.title + '</h3>' +
-    '<p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:.5rem;">' + (j.description || '') + '</p>' +
-    '<div style="display:flex;gap:.75rem;flex-wrap:wrap;">' +
-    (j.location ? '<span style="font-size:.75rem;color:#6b7280;">📍 ' + j.location + '</span>' : '') +
-    (j.type ? '<span style="font-size:.75rem;color:#6b7280;">⏱ ' + j.type + '</span>' : '') +
-    (j.closing_date ? '<span style="font-size:.75rem;color:#6b7280;">Closes: ' + new Date(j.closing_date).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) + '</span>' : '') +
-    '</div></div>' +
-    '<div style="flex-shrink:0;">' +
-    '<button onclick="applyJob('' + j.id + '','' + j.title.replace(/'/g,'') + '')" class="btn-primary text-sm px-4 py-2">Apply Now</button>' +
-    '</div></div></div>'
-  ).join('');
+  grid.innerHTML = data.map(j => {
+    const safeId = String(j.id).replace(/'/g, "\\'");
+    const safeTitle = (j.title || '').replace(/'/g, "\\'");
+    return (
+      '<div class="card p-6">' +
+      '<div style="display:flex;align-items:start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
+      '<div style="flex:1;">' +
+      '<span style="font-size:.6875rem;font-weight:600;color:#1b5e20;background:#f0f7f1;padding:.25rem .625rem;border-radius:2rem;text-transform:uppercase;">' + (j.department || 'General') + '</span>' +
+      '<h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin:.5rem 0 .25rem;">' + j.title + '</h3>' +
+      '<p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:.5rem;">' + (j.description || '') + '</p>' +
+      '<div style="display:flex;gap:.75rem;flex-wrap:wrap;">' +
+      (j.location ? '<span style="font-size:.75rem;color:#6b7280;">📍 ' + j.location + '</span>' : '') +
+      (j.type ? '<span style="font-size:.75rem;color:#6b7280;">⏱ ' + j.type + '</span>' : '') +
+      (j.closing_date ? '<span style="font-size:.75rem;color:#6b7280;">Closes: ' + new Date(j.closing_date).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) + '</span>' : '') +
+      '</div></div>' +
+      '<div style="flex-shrink:0;">' +
+      '<button onclick="applyJob(\'' + safeId + '\',\'' + safeTitle + '\')" class="btn-primary text-sm px-4 py-2">Apply Now</button>' +
+      '</div></div></div>'
+    );
+  }).join('');
 }
 
 function applyJob(id, title) {

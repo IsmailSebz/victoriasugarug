@@ -7,26 +7,13 @@ const LOGO = '/logo.jpg'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about.html', children: [
-      { label: 'About Us',            href: '/about.html' },
-      { label: 'Leadership Team',     href: '/about/leadership.html' },
-      { label: 'Board of Directors',  href: '/about/board.html' },
-      { label: 'Corporate Governance',href: '/about/governance.html' },
-      { label: 'Awards & Certifications', href: '/about/awards.html' },
-  ]},
+  { label: 'About', href: '/about.html' },
   { label: 'Our Products', href: '/products/', children: [
       { label: 'All Products',         href: '/products/' },
       { label: 'Sugar',                href: '/products/sugar.html' },
       { label: 'Extra Natural Alcohol',href: '/products/alcohol.html' },
       { label: 'Ethanol',              href: '/products/ethanol.html' },
       { label: 'Electricity',          href: '/products/electricity.html' },
-  ]},
-  { label: 'Sustainability', href: '/sustainability/', children: [
-      { label: 'Sustainability',             href: '/sustainability/' },
-      { label: 'Corporate Social Responsibility', href: '/sustainability/csr.html' },
-      { label: 'Community Development',      href: '/sustainability/community.html' },
-      { label: 'Health & Safety',            href: '/sustainability/health-safety.html' },
-      { label: 'Education Initiatives',      href: '/sustainability/education.html' },
   ]},
   { label: 'Media', href: '/news/', children: [
       { label: 'News & Media', href: '/news/' },
@@ -36,13 +23,7 @@ const NAV_LINKS = [
       { label: 'Downloads',    href: '/downloads/' },
       { label: 'Events',       href: '/events/' },
   ]},
-  { label: 'Business', href: '/tenders/', children: [
-      { label: 'Tenders & Procurement',   href: '/tenders/' },
-      { label: 'Careers',                 href: '/careers/' },
-      { label: 'Bulk & Industrial Orders',href: '/bulk-orders.html' },
-      { label: 'Export Markets',          href: '/export.html' },
-      { label: 'FAQs',                    href: '/faqs.html' },
-  ]},
+  { label: 'Careers', href: '/careers/'},
   { label: 'Contact', href: '/contact.html' },
 ]
 

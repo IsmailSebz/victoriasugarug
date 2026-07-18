@@ -7,7 +7,6 @@ const PARTNER_LINKS = [
   { label: 'Tarpo Plastics',    href: 'https://tarpoplastics.com/' },
   { label: 'Total Cables',      href: 'https://www.totalcablesltd.com' },
   { label: 'Parle G Sweets',    href: 'https://www.parlegsweets.com/' },
-  { label: 'Mayuge Sugar',      href: 'https://mpgroupofindustries.com/home.aspx' },
 ]
 
 const PRODUCT_LINKS = [
