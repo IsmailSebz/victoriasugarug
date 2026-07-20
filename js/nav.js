@@ -18,8 +18,6 @@ const NAV_LINKS = [
   { label: 'Media', href: '/news/', children: [
       { label: 'News & Media', href: '/news/' },
       { label: 'Gallery',      href: '/gallery/' },
-      { label: 'Press Room',   href: '/press-room/' },
-      { label: 'Video Tour',   href: '/video-tour.html' },
       { label: 'Downloads',    href: '/downloads/' },
       { label: 'Events',       href: '/events/' },
   ]},
