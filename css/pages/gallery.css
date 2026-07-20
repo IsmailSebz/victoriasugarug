@@ -1,0 +1,11 @@
+/* ── gallery.html — page-specific styles (auto-extracted) ── */
+.gallery-block { position: relative; max-width: 90vw; max-height: 90vh; }
+.gallery-media { max-width: 90vw; max-height: 80vh; border-radius: .75rem; object-fit: contain; }
+.gallery-text-center-block { color: #fff; text-align: center; margin-top: .5rem; font-size: .875rem; }
+.gallery-abs-el { position: absolute; top: -2rem; right: 0; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
+.gallery-abs-el-2 { position: absolute; left: -3rem; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.2); border: none; color: #fff; font-size: 1.5rem; padding: .5rem .75rem; border-radius: .5rem; cursor: pointer; }
+.gallery-abs-el-3 { position: absolute; right: -3rem; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.2); border: none; color: #fff; font-size: 1.5rem; padding: .5rem .75rem; border-radius: .5rem; cursor: pointer; }
+
+.album-tab { padding:.5rem 1rem;border-radius:2rem;font-size:.875rem;font-weight:500;cursor:pointer;border:1px solid #d1d5db;background:#fff;color:#374151;transition:all .2s; }
+.album-tab:hover { border-color:#1b5e20;color:#1b5e20; }
+.active-tab { background:#1b5e20;color:#fff;border-color:#1b5e20; }

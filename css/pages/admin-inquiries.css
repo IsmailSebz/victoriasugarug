@@ -1,0 +1,5 @@
+/* ── admin-inquiries.html — page-specific styles (auto-extracted) ── */
+.admin-inquiries-block { max-width: 12rem; }
+.admin-inquiries-block-2 { overflow: auto; }
+.admin-inquiries-flex-row { margin-top: 1.5rem; display: flex; gap: .75rem; flex-wrap: wrap; }
+.admin-inquiries-block-3 { background: #fee2e2; color: #dc2626; border: none; padding: .5rem 1rem; border-radius: .375rem; cursor: pointer; font-size: .875rem; font-weight: 500; }

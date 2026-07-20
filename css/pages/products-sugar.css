@@ -1,0 +1,7 @@
+/* ── products-sugar.html — page-specific styles (auto-extracted) ── */
+.products-sugar-bg-block { background: #0f3d12; }
+.products-sugar-block { grid-column: span 2; border-radius: 1rem; overflow: hidden; height: 22rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,.15); }
+.products-sugar-flex-row { display: flex; flex-direction: column; gap: .75rem; }
+.products-sugar-block-2 { border-radius: 1rem; overflow: hidden; height: 10.625rem; box-shadow: 0 10px 25px -5px rgba(0,0,0,.15); }
+.products-sugar-bg-block-2 { background: #0f3d12; color: #fff; }
+.products-sugar-heading { font-family: Georgia,serif; font-size: 1.75rem; font-weight: 700; color: #fff; margin-bottom: .75rem; }

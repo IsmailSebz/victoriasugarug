@@ -16,9 +16,9 @@
 <div class="page-hero">
   <div class="container-main page-hero-content">
     <span class="section-label">Calendar</span>
-    <h1 style="font-family:Georgia,serif;font-size:2.5rem;font-weight:700;color:#fff;margin:.5rem 0 1rem;">Events</h1>
-    <p style="color:#b4dab6;max-width:40rem;">Upcoming events, exhibitions, and industry conferences featuring Victoria Sugar.</p>
-    <nav style="margin-top:1rem;font-size:.875rem;"><a href="/" style="color:#4da052;text-decoration:none;">Home</a> <span style="color:#145218;"> &rsaquo; </span> Events</nav>
+    <h1 class="page-hero-title">Events</h1>
+    <p class="page-hero-subtitle">Upcoming events, exhibitions, and industry conferences featuring Victoria Sugar.</p>
+    <nav class="breadcrumb"><a class="breadcrumb-link" href="/">Home</a> <span class="breadcrumb-sep"> &rsaquo; </span> Events</nav>
   </div>
 </div>
 
@@ -35,35 +35,8 @@
 
 <div id="footer"></div><div id="inquiry-modal"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/tailwind-config.js"></script>
 <script src="/js/supabase-client.js"></script>
 <script src="/js/nav.js"></script><script src="/js/footer.js"></script><script src="/js/inquiry-modal.js"></script>
-<script>initNav();initFooter();initInquiryModal();
-
-async function loadEvents() {
-  const up = document.getElementById('upcoming-events');
-  const ps = document.getElementById('past-events');
-  const now = new Date().toISOString();
-  const { data: upcoming } = await db.from('events').select('*').gte('event_date', now).order('event_date', {ascending: true}).limit(6);
-  const { data: past } = await db.from('events').select('*').lt('event_date', now).order('event_date', {ascending: false}).limit(6);
-  function renderEvent(e) {
-    const d = e.event_date ? new Date(e.event_date) : null;
-    return '<div class="card p-6 flex gap-4">' +
-      '<div style="min-width:3.5rem;text-align:center;background:#f0f7f1;border-radius:.75rem;padding:.5rem;">' +
-      '<div style="font-size:1.5rem;font-weight:700;color:#0f3d12;font-family:Georgia,serif;">' + (d ? d.getDate() : '') + '</div>' +
-      '<div style="font-size:.6875rem;font-weight:600;color:#c8a84b;text-transform:uppercase;">' + (d ? d.toLocaleString('en',{month:'short'}) : '') + '</div>' +
-      '<div style="font-size:.6875rem;color:#6b7280;">' + (d ? d.getFullYear() : '') + '</div>' +
-      '</div>' +
-      '<div>' +
-      '<h3 style="font-family:Georgia,serif;font-weight:700;color:#0f3d12;margin-bottom:.25rem;">' + e.title + '</h3>' +
-      (e.location ? '<p style="color:#6b7280;font-size:.8125rem;margin-bottom:.25rem;">📍 ' + e.location + '</p>' : '') +
-      '<p style="color:#6b7280;font-size:.875rem;line-height:1.5;">' + (e.description || '') + '</p>' +
-      '</div></div>';
-  }
-  up.innerHTML = upcoming && upcoming.length ? upcoming.map(renderEvent).join('') : '<p class="text-gray-400 text-center py-6">No upcoming events.</p>';
-  ps.innerHTML = past && past.length ? past.map(renderEvent).join('') : '<p class="text-gray-400 text-center py-6">No past events to show.</p>';
-}
-loadEvents();
-
-</script>
+<script src="/js/pages/events.js"></script>
 </body></html>

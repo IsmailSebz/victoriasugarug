@@ -1,0 +1,53 @@
+/* ── admin.css — shared layout/components for the /admin/* dashboard ────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body { background: #f9fafb; }
+
+/* ── Shell layout ─────────────────────────────────────────────────────────── */
+.admin-layout { display: flex; min-height: 100vh; }
+.admin-main { margin-left: 15rem; flex: 1; padding: 2rem; }
+.admin-container { max-width: 72rem; margin: 0 auto; }
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+.admin-sidebar {
+  width: 15rem; background: #0f3d12; flex-shrink: 0;
+  position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.admin-sidebar-header { padding: 1.5rem 1.25rem; border-bottom: 1px solid #145218; }
+.admin-sidebar-brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.admin-sidebar-logo { width: 2.5rem; height: 2.5rem; border-radius: .5rem; background: #fff; padding: .2rem; object-fit: contain; }
+.admin-sidebar-title { color: #fff; font-weight: 700; font-size: .9375rem; font-family: Georgia, serif; }
+.admin-sidebar-subtitle { color: #c8a84b; font-size: .6875rem; }
+.admin-sidebar-nav { padding: 1rem .75rem; flex: 1; }
+.admin-sidebar-footer { padding: 1rem .75rem; border-top: 1px solid #145218; }
+.admin-sidebar-label { color: #b4dab6; font-size: .75rem; padding: .5rem 1rem; margin-bottom: .5rem; }
+
+/* ── Page header ──────────────────────────────────────────────────────────── */
+.admin-page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+.admin-page-title { font-family: Georgia, serif; font-size: 1.875rem; font-weight: 700; color: #0f3d12; }
+
+/* ── Tables ───────────────────────────────────────────────────────────────── */
+.admin-table-wrap { overflow: auto; margin-bottom: 2rem; }
+.admin-table { width: 100%; border-collapse: collapse; }
+.admin-table thead { background: #f9fafb; }
+.admin-table-th { text-align: left; padding: .5rem .75rem; font-size: .75rem; color: #6b7280; font-weight: 600; text-transform: uppercase; }
+.admin-table-th-plain { padding: .5rem .75rem; }
+.admin-table-empty { text-align: center; padding: 2rem; color: #9ca3af; }
+
+/* ── Modals ───────────────────────────────────────────────────────────────── */
+.admin-modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  z-index: 200; align-items: center; justify-content: center; padding: 1rem;
+}
+.admin-modal-box {
+  background: #fff; border-radius: 1rem; padding: 2rem;
+  max-width: 36rem; width: 100%; max-height: 90vh; overflow-y: auto; position: relative;
+}
+.admin-modal-title { font-family: Georgia, serif; font-size: 1.25rem; font-weight: 700; color: #0f3d12; margin-bottom: 1.5rem; }
+.admin-modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; font-size: 1.5rem; color: #6b7280; }
+.admin-modal-close-plain { position: absolute; top: 1rem; right: 1rem; background: none; border: none; cursor: pointer; font-size: 1.5rem; }
+
+/* ── Forms / buttons ──────────────────────────────────────────────────────── */
+.admin-btn-row { display: flex; gap: .75rem; }
+.admin-form-error { display: none; color: #dc2626; font-size: .875rem; margin-bottom: 1rem; }

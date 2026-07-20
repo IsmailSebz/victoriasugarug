@@ -1,0 +1,18 @@
+/* ── about.html — page-specific styles (auto-extracted) ── */
+.about-text-style { color: #b4dab6; max-width: 40rem; font-size: 1.125rem; }
+.about-text-style-2 { margin-top: 1rem; font-size: .875rem; color: #4da052; }
+.about-block { color: #6b7280; line-height: 1.8; margin-bottom: 1.25rem; }
+.about-block-2 { color: #6b7280; line-height: 1.8; }
+.about-block-3 { position: relative; }
+.about-icon { width: 100%; border-radius: 1.5rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,.2); }
+.about-flex-row { width: 3.5rem; height: 3.5rem; background: #f0f7f1; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.about-subheading { font-family: Georgia,serif; font-size: 1.375rem; font-weight: 700; color: #0f3d12; margin-bottom: .75rem; }
+.about-block-4 { color: #6b7280; line-height: 1.7; }
+.about-flex-row-2 { width: 3.5rem; height: 3.5rem; background: #fdf9ec; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.about-block-5 { font-size: 2rem; margin-bottom: 1rem; }
+.about-block-6 { max-width: 48rem; margin: 0 auto; position: relative; }
+.about-abs-el { position: absolute; left: 1.5rem; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
+.about-flex-row-3 { display: flex; gap: 1.5rem; position: relative; }
+.about-icon-circle { width: 3rem; height: 3rem; border-radius: 50%; background: #0f3d12; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .75rem; flex-shrink: 0; position: relative; z-index: 1; }
+.about-icon-circle-2 { width: 3rem; height: 3rem; border-radius: 50%; background: #1b5e20; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .75rem; flex-shrink: 0; position: relative; z-index: 1; }
+.about-icon-circle-3 { width: 3rem; height: 3rem; border-radius: 50%; background: #c8a84b; color: #0f3d12; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .75rem; flex-shrink: 0; position: relative; z-index: 1; }

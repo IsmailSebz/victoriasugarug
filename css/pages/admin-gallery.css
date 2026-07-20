@@ -1,0 +1,10 @@
+/* ── admin-gallery.html — page-specific styles (auto-extracted) ── */
+.admin-gallery-text-style { font-size: .75rem; color: #9ca3af; }
+.admin-gallery-block { background: #fff; border-radius: 1rem; padding: 2rem; max-width: 28rem; width: 100%; position: relative; }
+.admin-gallery-heading { font-family: Georgia,serif; font-weight: 700; color: #0f3d12; margin-bottom: 1.5rem; }
+.admin-gallery-toggle-hidden { margin-bottom: 1rem; display: none; }
+.admin-gallery-media { width: 100%; border-radius: .5rem; max-height: 10rem; object-fit: cover; }
+
+.album-tab-btn{padding:.375rem .875rem;border-radius:2rem;font-size:.8125rem;font-weight:500;cursor:pointer;border:1px solid #d1d5db;background:#fff;color:#374151;transition:all .15s;}
+.album-tab-btn:hover{border-color:#1b5e20;color:#1b5e20;}
+.active-tab{background:#1b5e20!important;color:#fff!important;border-color:#1b5e20!important;}

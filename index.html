@@ -10,27 +10,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css"><link rel="stylesheet" href="/css/pages/home.css">
 </head>
 <body>
 <div id="navbar"></div>
 
 <!-- ── HERO ───────────────────────────────────────────────────────────── -->
-<section id="hero" class="relative overflow-hidden" style="min-height:90vh;display:flex;align-items:center;">
+<section id="hero" class="relative overflow-hidden home-flex-row">
   <!-- Background -->
-  <div id="hero-bg" style="position:absolute;inset:0;z-index:0;">
-    <img src="/hero-bg.jpeg" alt="" style="width:100%;height:100%;object-fit:cover;">
-    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,41,12,.85) 0%,rgba(27,94,32,.6) 100%);"></div>
+  <div class="home-overlay" id="hero-bg">
+    <img class="media-cover" src="/hero-bg.jpeg" alt="">
+    <div class="home-overlay-2"></div>
   </div>
 
   <!-- Content -->
-  <div class="container-main relative" style="z-index:1;padding-top:6rem;padding-bottom:6rem;">
-    <div style="max-width:42rem;">
-      <div class="section-label mb-4" style="color:#c8a84b;">Uganda's Leading Sugar Manufacturer</div>
-      <h1 style="font-family:Georgia,serif;font-size:3rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.5rem;">
-        Taste the<br><span style="color:#c8a84b;">Nature's Sweetness</span>
+  <div class="container-main relative home-block">
+    <div class="home-block-2">
+      <div class="section-label mb-4 home-block-3">Uganda's Leading Sugar Manufacturer</div>
+      <h1 class="home-heading">
+        Taste the<br><span class="home-block-3">Nature's Sweetness</span>
       </h1>
-      <p style="color:#d9edd9;font-size:1.125rem;line-height:1.7;margin-bottom:2.5rem;max-width:36rem;">
+      <p class="home-block-4">
         Victoria Sugar has been delivering world-class sugar, ethanol, extra natural alcohol, 
         and green electricity from the heart of Uganda.
       </p>
@@ -44,7 +44,7 @@
 </section>
 
 <!-- ── STATS STRIP ──────────────────────────────────────────────────────── -->
-<section style="background:#0f3d12;padding:2rem 0;">
+<section class="home-bg-block">
   <div class="container-main">
     <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
       <div class="stat-item">
@@ -78,12 +78,12 @@
       <div>
         <span class="section-label">Who We Are</span>
         <h2 class="section-title">Uganda's Premier Sugar &amp; Agro-Industrial Company</h2>
-        <p style="color:#6b7280;line-height:1.8;margin-bottom:1.5rem;">
+        <p class="home-block-5">
           Victoria Sugar Limited is one of Uganda's leading agro-industrial companies, 
           headquartered in Luwero District. We grow, harvest, and process sugar cane into premium sugar, 
           extra neutral alcohol, ethanol and electricity — all from a single, integrated facility.
         </p>
-        <p style="color:#6b7280;line-height:1.8;margin-bottom:2rem;">
+        <p class="text-body-mb-lg">
           As a consumer-driven business, VSL takes time to study the market and understand consumer needs and wants as 
           well as how best to satisfy them. That is why we constantly invest in innovating and renovating our brands to 
           stay at par with dynamic consumer trends. This goes hand in hand with our Vision to be the most celebrated business 
@@ -94,19 +94,18 @@
           <a href="/contact.html" class="btn-secondary">Contact Us</a>
         </div>
       </div>
-      <div style="position:relative;">
-        <div style="border-radius:1.5rem;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);">
-          <img src="/resources/vsl team factory.jpeg" 
-               alt="Victoria Sugar factory team" 
-               style="width:100%;height:24rem;object-fit:cover;">
+      <div class="home-block-6">
+        <div class="home-block-7">
+          <img class="home-media" src="/resources/vsl team factory.jpeg" 
+               alt="Victoria Sugar factory team">
         </div>
-        <div style="position:absolute;bottom:-1.5rem;left:-1.5rem;background:#fff;border-radius:1rem;padding:1.25rem;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);">
-          <div style="font-size:1.5rem;font-weight:700;color:#0f3d12;font-family:Georgia,serif;">1999</div>
-          <div style="font-size:.75rem;color:#6b7280;font-weight:500;">Est. in Uganda</div>
+        <div class="home-abs-el">
+          <div class="home-subheading">1999</div>
+          <div class="home-text-style">Est. in Uganda</div>
         </div>
-        <div style="position:absolute;top:-1rem;right:-1rem;background:#c8a84b;border-radius:1rem;padding:1.25rem;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);">
-          <div style="font-size:1.5rem;font-weight:700;color:#0f3d12;font-family:Georgia,serif;">150K+</div>
-          <div style="font-size:.75rem;color:#0f3d12;font-weight:500;">Tonnes / year</div>
+        <div class="home-abs-el-2">
+          <div class="home-subheading">150K+</div>
+          <div class="home-text-style-2">Tonnes / year</div>
         </div>
       </div>
     </div>
@@ -114,7 +113,7 @@
 </section>
 
 <!-- ── PRODUCTS ─────────────────────────────────────────────────────────── -->
-<section class="section" style="background:#f9fafb;">
+<section class="section bg-subtle">
   <div class="container-main">
     <div class="text-center mb-12">
       <span class="section-label">What We Produce</span>
@@ -123,69 +122,69 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <a href="/products/sugar.html" class="card group" style="text-decoration:none;">
-        <div style="position:relative;height:11.25rem;overflow:hidden;">
-          <img src="/products/sugar.jpeg" alt="Sugar" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);"></div>
-          <div style="position:absolute;bottom:.75rem;left:1rem;">
-            <span style="font-size:.6875rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.05em;">Product</span>
-            <h3 style="font-family:Georgia,serif;font-weight:700;font-size:1.125rem;color:#fff;line-height:1.2;">Sugar</h3>
+      <a href="/products/sugar.html" class="card group no-underline">
+        <div class="home-block-8">
+          <img src="/products/sugar.jpeg" alt="Sugar" class="group-hover:scale-105 media-cover-zoom">
+          <div class="home-overlay-3"></div>
+          <div class="home-abs-el-3">
+            <span class="eyebrow-on-dark">Product</span>
+            <h3 class="home-subheading-2">Sugar</h3>
           </div>
         </div>
-        <div style="padding:1.25rem;">
-          <p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:1rem;">Premium refined and raw sugar for retail, industrial and export markets. UNBS certified and ISO compliant.</p>
-          <span style="color:#1b5e20;font-size:.875rem;font-weight:600;display:flex;align-items:center;gap:.25rem;">
+        <div class="home-block-9">
+          <p class="text-muted-sm-mb">Premium refined and raw sugar for retail, industrial and export markets. UNBS certified and ISO compliant.</p>
+          <span class="link-tag-sm">
             Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
 
-      <a href="/products/alcohol.html" class="card group" style="text-decoration:none;">
-        <div style="position:relative;height:11.25rem;overflow:hidden;background:#92400e;">
-          <img src="/products/alcohol.png" alt="Extra Natural Alcohol" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105" onerror="this.style.display='none'">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);"></div>
-          <div style="position:absolute;bottom:.75rem;left:1rem;">
-            <span style="font-size:.6875rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.05em;">Product</span>
-            <h3 style="font-family:Georgia,serif;font-weight:700;font-size:1.125rem;color:#fff;line-height:1.2;">Extra Natural Alcohol</h3>
+      <a href="/products/alcohol.html" class="card group no-underline">
+        <div class="home-block-10">
+          <img src="/products/alcohol.png" alt="Extra Natural Alcohol" class="group-hover:scale-105 media-cover-zoom" onerror="this.style.display='none'">
+          <div class="home-overlay-3"></div>
+          <div class="home-abs-el-3">
+            <span class="eyebrow-on-dark">Product</span>
+            <h3 class="home-subheading-2">Extra Natural Alcohol</h3>
           </div>
         </div>
-        <div style="padding:1.25rem;">
-          <p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:1rem;">High-purity extra neutral alcohol for beverage, pharmaceutical and industrial applications.</p>
-          <span style="color:#1b5e20;font-size:.875rem;font-weight:600;display:flex;align-items:center;gap:.25rem;">
+        <div class="home-block-9">
+          <p class="text-muted-sm-mb">High-purity extra neutral alcohol for beverage, pharmaceutical and industrial applications.</p>
+          <span class="link-tag-sm">
             Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
 
-      <a href="/products/ethanol.html" class="card group" style="text-decoration:none;">
-        <div style="position:relative;height:11.25rem;overflow:hidden;background:#1e3a5f;">
-          <img src="/products/ethanol.jpeg" alt="Ethanol" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105" onerror="this.style.display='none'">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);"></div>
-          <div style="position:absolute;bottom:.75rem;left:1rem;">
-            <span style="font-size:.6875rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.05em;">Product</span>
-            <h3 style="font-family:Georgia,serif;font-weight:700;font-size:1.125rem;color:#fff;line-height:1.2;">Ethanol</h3>
+      <a href="/products/ethanol.html" class="card group no-underline">
+        <div class="home-block-11">
+          <img src="/products/ethanol.jpeg" alt="Ethanol" class="group-hover:scale-105 media-cover-zoom" onerror="this.style.display='none'">
+          <div class="home-overlay-3"></div>
+          <div class="home-abs-el-3">
+            <span class="eyebrow-on-dark">Product</span>
+            <h3 class="home-subheading-2">Ethanol</h3>
           </div>
         </div>
-        <div style="padding:1.25rem;">
-          <p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:1rem;">Fuel-grade and industrial ethanol distilled from fermented molasses — supporting Uganda's energy transition.</p>
-          <span style="color:#1b5e20;font-size:.875rem;font-weight:600;display:flex;align-items:center;gap:.25rem;">
+        <div class="home-block-9">
+          <p class="text-muted-sm-mb">Fuel-grade and industrial ethanol distilled from fermented molasses — supporting Uganda's energy transition.</p>
+          <span class="link-tag-sm">
             Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
 
-      <a href="/products/electricity.html" class="card group" style="text-decoration:none;">
-        <div style="position:relative;height:11.25rem;overflow:hidden;background:#1f2937;">
-          <img src="/products/electricity.jpg" alt="Electricity" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105" onerror="this.style.display='none'">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);"></div>
-          <div style="position:absolute;bottom:.75rem;left:1rem;">
-            <span style="font-size:.6875rem;font-weight:600;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.05em;">Product</span>
-            <h3 style="font-family:Georgia,serif;font-weight:700;font-size:1.125rem;color:#fff;line-height:1.2;">Electricity</h3>
+      <a href="/products/electricity.html" class="card group no-underline">
+        <div class="home-block-12">
+          <img src="/products/electricity.jpg" alt="Electricity" class="group-hover:scale-105 media-cover-zoom" onerror="this.style.display='none'">
+          <div class="home-overlay-3"></div>
+          <div class="home-abs-el-3">
+            <span class="eyebrow-on-dark">Product</span>
+            <h3 class="home-subheading-2">Electricity</h3>
           </div>
         </div>
-        <div style="padding:1.25rem;">
-          <p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:1rem;">Renewable electricity generated from bagasse co-generation, supplying the national grid and local communities.</p>
-          <span style="color:#1b5e20;font-size:.875rem;font-weight:600;display:flex;align-items:center;gap:.25rem;">
+        <div class="home-block-9">
+          <p class="text-muted-sm-mb">Renewable electricity generated from bagasse co-generation, supplying the national grid and local communities.</p>
+          <span class="link-tag-sm">
             Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
@@ -199,55 +198,48 @@
 </section>
 
 <!-- ── INTRO VIDEO ──────────────────────────────────────────────────────── -->
-<section class="section" style="background:#0a290c;">
+<section class="section home-bg-block-2">
   <div class="container-main">
     <div class="text-center mb-10">
-      <span class="section-label" style="color:#c8a84b;font-size: 3rem;">See Us in Action</span>
-      <h2 class="section-title" style="color:#fff;margin-left:auto;margin-right:auto;">Inside Our Sugar Factory</h2>
-      <p style="color:#b4dab6;font-size:.875rem;max-width:36rem;margin:0 auto;">
+      <span class="section-label home-text-style-3">See Us in Action</span>
+      <h2 class="section-title home-block-13">Inside Our Sugar Factory</h2>
+      <p class="home-text-style-4">
         From our cane fields to our processing plant — watch how we bring Uganda's finest sugar to life.
       </p>
     </div>
-    <div id="video-wrapper-intro" style="position:relative;border-radius:1rem;
-    overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);
-    max-width:56rem;margin:0 auto;aspect-ratio:16/9;
-    cursor:pointer;" onclick="toggleVideo('intro-video')">
-      <video id="intro-video" src="https://media.victoriasugar.ug/videos/intro-video.mp4"
-             style="width:100%;height:100%;object-fit:cover;" muted playsinline preload="metadata"
+    <div class="home-block-14" id="video-wrapper-intro" onclick="toggleVideo('intro-video')">
+      <video class="media-cover" id="intro-video" src="https://media.victoriasugar.ug/videos/intro-video.mp4" muted playsinline preload="metadata"
              onended="videoEnded('intro-video')"></video>
-      <div id="video-overlay-intro" style="position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:opacity .3s;">
-        <button id="play-btn-intro" aria-label="Play" style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
+      <div class="home-overlay-4" id="video-overlay-intro">
+        <button class="home-icon-circle" id="play-btn-intro" aria-label="Play" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
           <svg id="play-icon-intro" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <svg id="pause-icon-intro" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2" style="display:none;"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
+          <svg class="hidden" id="pause-icon-intro" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
         </button>
       </div>
-      <button id="mute-btn-intro" onclick="event.stopPropagation();toggleMute('intro-video')" aria-label="Mute"
-              style="position:absolute;bottom:1rem;right:1rem;width:2.5rem;height:2.5rem;background:rgba(0,0,0,.5);border:none;border-radius:50%;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s;">
+      <button class="home-icon-circle-2" id="mute-btn-intro" onclick="event.stopPropagation();toggleMute('intro-video')" aria-label="Mute">
         <svg id="mute-icon-intro" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <svg id="unmute-icon-intro" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <svg class="hidden" id="unmute-icon-intro" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
       </button>
     </div>
     <br><br>
     <div class="text-center mb-10">
-      <h2 class="section-title" style="color:#fff;margin-left:auto;margin-right:auto;">Inside Our Sugar Farms</h2>
-      <p style="color:#b4dab6;font-size:.875rem;max-width:36rem;margin:0 auto;">
+      <h2 class="section-title home-block-13">Inside Our Sugar Farms</h2>
+      <p class="home-text-style-4">
         Take a video tour of our cane fields, farms where we grow our finest quality sugar.
       </p>
     </div>
-    <div id="video-wrapper-tour" style="position:relative;border-radius:1rem;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);max-width:56rem;margin:0 auto;aspect-ratio:16/9;cursor:pointer;" onclick="toggleVideo('tour-video')">
-      <video id="tour-video" src="https://media.victoriasugar.ug/videos/VSL-Farms-Aerial-Tour.mp4"
-             style="width:100%;height:100%;object-fit:cover;" muted playsinline preload="metadata"
+    <div class="home-block-15" id="video-wrapper-tour" onclick="toggleVideo('tour-video')">
+      <video class="media-cover" id="tour-video" src="https://media.victoriasugar.ug/videos/VSL-Farms-Aerial-Tour.mp4" muted playsinline preload="metadata"
              onended="videoEnded('tour-video')"></video>
-      <div id="video-overlay-tour" style="position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;transition:opacity .3s;">
-        <button id="play-btn-tour" aria-label="Play" style="width:5rem;height:5rem;background:rgba(255,255,255,.9);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
+      <div class="home-overlay-4" id="video-overlay-tour">
+        <button class="home-icon-circle" id="play-btn-tour" aria-label="Play" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''">
           <svg id="play-icon-tour" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <svg id="pause-icon-tour" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2" style="display:none;"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
+          <svg class="hidden" id="pause-icon-tour" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
         </button>
       </div>
-      <button id="mute-btn-tour" onclick="event.stopPropagation();toggleMute('tour-video')" aria-label="Mute"
-              style="position:absolute;bottom:1rem;right:1rem;width:2.5rem;height:2.5rem;background:rgba(0,0,0,.5);border:none;border-radius:50%;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;transition:background .2s;">
+      <button class="home-icon-circle-2" id="mute-btn-tour" onclick="event.stopPropagation();toggleMute('tour-video')" aria-label="Mute">
         <svg id="mute-icon-tour" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <svg id="unmute-icon-tour" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
+        <svg class="hidden" id="unmute-icon-tour" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>
       </button>
     </div>
   </div>
@@ -269,7 +261,7 @@
       </button>
       <div class="carousel-viewport">
         <div id="news-grid" class="carousel-track">
-          <div class="text-center py-12 text-gray-400" style="flex:1;">Loading latest news...</div>
+          <div class="text-center py-12 text-gray-400 home-block-16">Loading latest news...</div>
         </div>
       </div>
       <button class="carousel-btn carousel-btn-next" onclick="carouselNav('news-grid',1)" aria-label="Next news">
@@ -280,7 +272,7 @@
 </section>
 
 <!-- ── GALLERY PREVIEW ───────────────────────────────────────────────────── -->
-<section class="section-sm" style="background:#f9fafb;">
+<section class="section-sm bg-subtle">
   <div class="container-main">
     <div class="flex items-end justify-between mb-8">
       <div>
@@ -295,7 +287,7 @@
       </button>
       <div class="carousel-viewport">
         <div id="gallery-preview" class="carousel-track">
-          <div class="text-center py-8 text-gray-400" style="flex:1;">Loading gallery...</div>
+          <div class="text-center py-8 text-gray-400 home-block-16">Loading gallery...</div>
         </div>
       </div>
       <button class="carousel-btn carousel-btn-next" onclick="carouselNav('gallery-preview',1)" aria-label="Next photos">
@@ -316,25 +308,25 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="card p-8 text-center">
-        <div style="width:100%;height:11rem;border-radius:1rem;overflow:hidden;margin:0 auto 1.5rem;">
-          <img src="/resources/irrigation.jpg" alt="Sustainable Farming — irrigation" style="width:100%;height:100%;object-fit:cover;">
+        <div class="home-block-17">
+          <img class="media-cover" src="/resources/irrigation.jpg" alt="Sustainable Farming — irrigation">
         </div>
-        <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0f3d12;margin-bottom:.75rem;">Sustainable Farming</h3>
-        <p style="color:#6b7280;font-size:.875rem;line-height:1.7;">We use water-efficient irrigation, crop rotation, and organic composting to maintain soil health and minimize environmental impact.</p>
+        <h3 class="home-subheading-3">Sustainable Farming</h3>
+        <p class="home-text-style-5">We use water-efficient irrigation, crop rotation, and organic composting to maintain soil health and minimize environmental impact.</p>
       </div>
       <div class="card p-8 text-center">
-        <div style="width:100%;height:11rem;border-radius:1rem;overflow:hidden;margin:0 auto 1.5rem;">
-          <img src="/resources/borehole.png" alt="Community Development — borehole" style="width:100%;height:100%;object-fit:cover;">
+        <div class="home-block-17">
+          <img class="media-cover" src="/resources/borehole.png" alt="Community Development — borehole">
         </div>
-        <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0f3d12;margin-bottom:.75rem;">Community Development</h3>
-        <p style="color:#6b7280;font-size:.875rem;line-height:1.7;">From schools to health centres, we invest in the communities around our operations — building infrastructure that lasts beyond business.</p>
+        <h3 class="home-subheading-3">Community Development</h3>
+        <p class="home-text-style-5">From schools to health centres, we invest in the communities around our operations — building infrastructure that lasts beyond business.</p>
       </div>
       <div class="card p-8 text-center">
-        <div style="width:100%;height:11rem;border-radius:1rem;overflow:hidden;margin:0 auto 1.5rem;">
-          <img src="/resources/bagase.jpg" alt="Renewable Energy — bagasse co-generation" style="width:100%;height:100%;object-fit:cover;">
+        <div class="home-block-17">
+          <img class="media-cover" src="/resources/bagase.jpg" alt="Renewable Energy — bagasse co-generation">
         </div>
-        <h3 style="font-family:Georgia,serif;font-size:1.25rem;font-weight:700;color:#0f3d12;margin-bottom:.75rem;">Renewable Energy</h3>
-        <p style="color:#6b7280;font-size:.875rem;line-height:1.7;">Our bagasse co-generation plant produces clean electricity from sugar cane waste, supplying the national grid and surrounding villages.</p>
+        <h3 class="home-subheading-3">Renewable Energy</h3>
+        <p class="home-text-style-5">Our bagasse co-generation plant produces clean electricity from sugar cane waste, supplying the national grid and surrounding villages.</p>
       </div>
     </div>
     <!-- <div class="text-center mt-10">
@@ -350,149 +342,11 @@
 
 <!-- ── SCRIPTS ───────────────────────────────────────────────────────────── -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script>tailwind.config={theme:{extend:{colors:{green:{50:'#f0f7f1',100:'#d9edd9',200:'#b4dab6',300:'#80c083',400:'#4da052',500:'#2e7d32',600:'#1b5e20',700:'#145218',800:'#0f3d12',900:'#0a290c',950:'#051506'},gold:{50:'#fdf9ec',100:'#faf0ca',200:'#f5df92',300:'#efc95a',400:'#c8a84b',500:'#b8922f',600:'#9a7424',700:'#7a5a1c',800:'#5e4415',900:'#3d2c0d',950:'#1f1506'}},fontFamily:{sans:['Inter','system-ui','sans-serif'],heading:['Georgia','Times New Roman','serif']}}}}</script>
+<script src="/js/tailwind-config.js"></script>
 <script src="/js/supabase-client.js"></script>
 <script src="/js/nav.js"></script>
 <script src="/js/footer.js"></script>
 <script src="/js/inquiry-modal.js"></script>
-<script>
-initNav(); initFooter(); initInquiryModal();
-
-// ── Intro video ────────────────────────────────────────────────────────────
-let videoPlaying = false;
-function toggleVideo(videodiv) {
-  const key = videodiv.replace('-video', '');
-  const v = document.getElementById(videodiv);
-  const ov = document.getElementById('video-overlay-' + key);
-  const pi = document.getElementById('play-icon-' + key);
-  const pa = document.getElementById('pause-icon-' + key);
-  if (v.paused) {
-    v.play(); videoPlaying = true;
-    ov.style.opacity = '0'; pi.style.display = 'none'; pa.style.display = '';
-  } else {
-    v.pause(); videoPlaying = false;
-    ov.style.opacity = '1'; pi.style.display = ''; pa.style.display = 'none';
-  }
-}
-function videoEnded(videodiv) {
-  const key = videodiv.replace('-video', '');
-  document.getElementById('video-overlay-' + key).style.opacity = '1';
-  document.getElementById('play-icon-' + key).style.display = '';
-  document.getElementById('pause-icon-' + key).style.display = 'none';
-  videoPlaying = false;
-}
-function toggleMute(videodiv) {
-  const key = videodiv.replace('-video', '');
-  const v = document.getElementById(videodiv);
-  v.muted = !v.muted;
-  document.getElementById('mute-icon-' + key).style.display   = v.muted ? '' : 'none';
-  document.getElementById('unmute-icon-' + key).style.display = v.muted ? 'none' : '';
-}
-
-// ── Auto-sliding carousel (gallery + news), with manual prev/next ───────────
-function initCarousel(track) {
-  const n = track.children.length;
-  if (track._carouselTimer) clearInterval(track._carouselTimer);
-  if (n <= 1) return;
-
-  let animating = false;
-
-  function stepWidth() {
-    const first = track.children[0];
-    const marginRight = parseFloat(getComputedStyle(first).marginRight) || 0;
-    return first.getBoundingClientRect().width + marginRight;
-  }
-
-  function next() {
-    if (animating) return;
-    animating = true;
-    const w = stepWidth();
-    track.style.transition = 'transform .5s ease';
-    track.style.transform = `translateX(-${w}px)`;
-    track.addEventListener('transitionend', function handler() {
-      track.removeEventListener('transitionend', handler);
-      track.style.transition = 'none';
-      track.appendChild(track.firstElementChild);
-      track.style.transform = 'translateX(0)';
-      animating = false;
-    }, { once: true });
-  }
-
-  function prev() {
-    if (animating) return;
-    animating = true;
-    const w = stepWidth();
-    track.style.transition = 'none';
-    track.insertBefore(track.lastElementChild, track.firstElementChild);
-    track.style.transform = `translateX(-${w}px)`;
-    // force reflow so the browser applies the jump before animating back
-    void track.offsetHeight;
-    track.style.transition = 'transform .5s ease';
-    track.style.transform = 'translateX(0)';
-    track.addEventListener('transitionend', function handler() {
-      track.removeEventListener('transitionend', handler);
-      animating = false;
-    }, { once: true });
-  }
-
-  function restartAutoplay() {
-    if (track._carouselTimer) clearInterval(track._carouselTimer);
-    track._carouselTimer = setInterval(next, 2000);
-  }
-
-  track._carouselNext = next;
-  track._carouselPrev = prev;
-  track._carouselRestart = restartAutoplay;
-
-  track.style.transition = 'transform .5s ease';
-  track.style.transform = 'translateX(0)';
-  restartAutoplay();
-}
-
-function carouselNav(trackId, dir) {
-  const track = document.getElementById(trackId);
-  if (!track || !track._carouselNext) return;
-  if (dir > 0) track._carouselNext(); else track._carouselPrev();
-  track._carouselRestart();
-}
-
-// ── Load news ──────────────────────────────────────────────────────────────
-async function loadNews() {
-  const { data, error } = await db.from('news').select('*').eq('is_published', true).order('published_date', { ascending: false }).limit(3);
-  const el = document.getElementById('news-grid');
-  if (error || !data || !data.length) {
-    el.innerHTML = '<div class="col-span-full text-center py-8 text-gray-400">No news articles yet.</div>';
-    return;
-  }
-  el.innerHTML = data.map(a => `
-    <a href="/news/article.html?id=${a.id}" class="card group news-slide" style="text-decoration:none;">
-      ${a.cover_image_url ? `<div style="height:12rem;overflow:hidden;"><img src="${a.cover_image_url}" alt="${a.title}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" class="group-hover:scale-105"></div>` : '<div style="height:12rem;background:linear-gradient(135deg,#f0f7f1,#d9edd9);display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>'}
-      <div style="padding:1.25rem;">
-        <span style="font-size:.6875rem;font-weight:600;color:#c8a84b;text-transform:uppercase;letter-spacing:.05em;">News</span>
-        <h3 style="font-family:Georgia,serif;font-weight:700;font-size:1rem;color:#0f3d12;margin:.25rem 0 .5rem;line-height:1.4;" class="line-clamp-2">${a.title}</h3>
-        <p style="color:#6b7280;font-size:.875rem;line-height:1.5;" class="line-clamp-2">${a.excerpt || ''}</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
-          <span style="font-size:.75rem;color:#9ca3af;">${a.published_date ? new Date(a.published_date).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) : ''}</span>
-          <span style="color:#1b5e20;font-size:.8125rem;font-weight:600;">Read more →</span>
-        </div>
-      </div>
-    </a>`).join('');
-  initCarousel(el);
-}
-
-// ── Load gallery preview ───────────────────────────────────────────────────
-async function loadGallery() {
-  const { data } = await db.from('gallery_items').select('id,url,thumbnail_url,title').order('sort_order',{ascending:true}).limit(8);
-  const el = document.getElementById('gallery-preview');
-  if (!data || !data.length) { el.innerHTML = '<div class="text-center py-8 text-gray-400" style="flex:1;">Gallery coming soon.</div>'; return; }
-  el.innerHTML = data.map(item => `
-    <div class="gallery-slide" style="border-radius:.75rem;overflow:hidden;aspect-ratio:1;cursor:pointer;" onclick="window.location='/gallery/'">
-      <img src="${item.thumbnail_url || item.url}" alt="${item.title || 'Gallery'}" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">
-    </div>`).join('');
-  initCarousel(el);
-}
-
-loadNews(); loadGallery();
-</script>
+<script src="/js/pages/home.js"></script>
 </body>
 </html>

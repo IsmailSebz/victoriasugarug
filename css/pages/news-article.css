@@ -1,0 +1,12 @@
+/* ── news-article.html — page-specific styles (auto-extracted) ── */
+.news-article-block { padding: 4rem 0 6rem; }
+.news-article-heading { font-family: Georgia,serif; font-size: 2rem; font-weight: 700; color: #fff; margin: .5rem 0 1rem; max-width: 48rem; }
+.news-article-text-style { color: #b4dab6; font-size: .875rem; }
+.news-article-block-2 { margin-top: .75rem; font-size: .875rem; }
+.news-article-block-3 { border-radius: .75rem; overflow: hidden; margin-bottom: 2rem; }
+.news-article-media { width: 100%; max-height: 24rem; object-fit: cover; }
+.news-article-text-style-2 { color: #374151; line-height: 1.8; font-size: 1.0625rem; }
+.news-article-divider-row { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #f3f4f6; }
+.news-article-subheading { font-family: Georgia,serif; font-weight: 700; color: #0f3d12; margin-bottom: .75rem; }
+.news-article-link { background: #25D366; color: #fff; padding: .5rem .875rem; border-radius: .5rem; font-size: .875rem; text-decoration: none; font-weight: 500; }
+.news-article-link-2 { background: #f3f4f6; color: #374151; padding: .5rem .875rem; border-radius: .5rem; font-size: .875rem; text-decoration: none; font-weight: 500; }

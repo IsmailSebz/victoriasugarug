@@ -1,0 +1,8 @@
+/* ── sustainability.html — page-specific styles (auto-extracted) ── */
+.sustainability-flex-row { width: 4rem; height: 4rem; background: #f0f7f1; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.sustainability-flex-row-2 { width: 4rem; height: 4rem; background: #fff1f2; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.sustainability-flex-row-3 { width: 4rem; height: 4rem; background: #f0fdf4; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.sustainability-flex-row-4 { width: 4rem; height: 4rem; background: #fefce8; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.sustainability-block { background: linear-gradient(135deg,#f0f7f1,#fdf9ec); border-radius: 1.5rem; padding: 3rem; }
+.sustainability-subheading { font-size: 2.5rem; font-weight: 700; color: #0f3d12; font-family: Georgia,serif; }
+.sustainability-block-2 { color: #6b7280; margin-top: .25rem; }

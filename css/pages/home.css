@@ -1,0 +1,40 @@
+/* ── home.html — page-specific styles (auto-extracted) ── */
+.home-flex-row { min-height: 90vh; display: flex; align-items: center; }
+.home-overlay { position: absolute; inset: 0; z-index: 0; }
+.home-overlay-2 { position: absolute; inset: 0; background: linear-gradient(135deg,rgba(10,41,12,.85) 0%,rgba(27,94,32,.6) 100%); }
+.home-block { z-index: 1; padding-top: 6rem; padding-bottom: 6rem; }
+.home-block-2 { max-width: 42rem; }
+.home-block-3 { color: #c8a84b; }
+.home-heading { font-family: Georgia,serif; font-size: 3rem; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 1.5rem; }
+.home-block-4 { color: #d9edd9; font-size: 1.125rem; line-height: 1.7; margin-bottom: 2.5rem; max-width: 36rem; }
+.home-bg-block { background: #0f3d12; padding: 2rem 0; }
+.home-block-5 { color: #6b7280; line-height: 1.8; margin-bottom: 1.5rem; }
+.home-block-6 { position: relative; }
+.home-block-7 { border-radius: 1.5rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+.home-media { width: 100%; height: 24rem; object-fit: cover; }
+.home-abs-el { position: absolute; bottom: -1.5rem; left: -1.5rem; background: #fff; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,.1); }
+.home-subheading { font-size: 1.5rem; font-weight: 700; color: #0f3d12; font-family: Georgia,serif; }
+.home-text-style { font-size: .75rem; color: #6b7280; font-weight: 500; }
+.home-abs-el-2 { position: absolute; top: -1rem; right: -1rem; background: #c8a84b; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,.1); }
+.home-text-style-2 { font-size: .75rem; color: #0f3d12; font-weight: 500; }
+.home-block-8 { position: relative; height: 11.25rem; overflow: hidden; }
+.home-overlay-3 { position: absolute; inset: 0; background: linear-gradient(to top,rgba(0,0,0,.5),transparent); }
+.home-abs-el-3 { position: absolute; bottom: .75rem; left: 1rem; }
+.home-subheading-2 { font-family: Georgia,serif; font-weight: 700; font-size: 1.125rem; color: #fff; line-height: 1.2; }
+.home-block-9 { padding: 1.25rem; }
+.home-block-10 { position: relative; height: 11.25rem; overflow: hidden; background: #92400e; }
+.home-block-11 { position: relative; height: 11.25rem; overflow: hidden; background: #1e3a5f; }
+.home-block-12 { position: relative; height: 11.25rem; overflow: hidden; background: #1f2937; }
+.home-bg-block-2 { background: #0a290c; }
+.home-text-style-3 { color: #c8a84b; font-size: 3rem; }
+.home-block-13 { color: #fff; margin-left: auto; margin-right: auto; }
+.home-text-style-4 { color: #b4dab6; font-size: .875rem; max-width: 36rem; margin: 0 auto; }
+.home-block-14 { position: relative; border-radius: 1rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,.5); max-width: 56rem; margin: 0 auto; aspect-ratio: 16/9; cursor: pointer; }
+.home-overlay-4 { position: absolute; inset: 0; background: rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center; transition: opacity .3s; }
+.home-icon-circle { width: 5rem; height: 5rem; background: rgba(255,255,255,.9); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform .2s; box-shadow: 0 25px 50px -12px rgba(0,0,0,.5); }
+.home-icon-circle-2 { position: absolute; bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; background: rgba(0,0,0,.5); border: none; border-radius: 50%; cursor: pointer; color: #fff; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.home-block-15 { position: relative; border-radius: 1rem; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,.5); max-width: 56rem; margin: 0 auto; aspect-ratio: 16/9; cursor: pointer; }
+.home-block-16 { flex: 1; }
+.home-block-17 { width: 100%; height: 11rem; border-radius: 1rem; overflow: hidden; margin: 0 auto 1.5rem; }
+.home-subheading-3 { font-family: Georgia,serif; font-size: 1.25rem; font-weight: 700; color: #0f3d12; margin-bottom: .75rem; }
+.home-text-style-5 { color: #6b7280; font-size: .875rem; line-height: 1.7; }

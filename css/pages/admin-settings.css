@@ -1,0 +1,6 @@
+/* ── admin-settings.html — page-specific styles (auto-extracted) ── */
+.admin-settings-heading { font-family: Georgia,serif; font-size: 1.875rem; font-weight: 700; color: #0f3d12; margin-bottom: 2rem; }
+.admin-settings-toggle-hidden { display: none; font-size: .875rem; margin-bottom: 1rem; }
+.admin-settings-text-style { color: #6b7280; font-size: .875rem; line-height: 1.8; }
+.admin-settings-text-style-2 { font-weight: 600; color: #374151; margin-bottom: .5rem; }
+.admin-settings-link { display: block; color: #1b5e20; text-decoration: none; font-size: .875rem; }
