@@ -4,9 +4,10 @@ let selectedDept = 'all';
 
 async function loadJobs() {
   const grid = document.getElementById('jobs-grid');
-  let q = db.from('job_listings').select('*').eq('active', true).order('created_at', {ascending: false});
+  let q = db.from('careers').select('*').eq('is_active', true).order('created_at', {ascending: false});
   if (selectedDept !== 'all') q = q.eq('department', selectedDept);
-  const { data } = await q;
+  const { data, error } = await q;
+  if (error) console.error('loadJobs failed:', error);
   if (!data || !data.length) { grid.innerHTML = '<div class="col-span-full text-center py-12 text-gray-400">No open positions in this department right now. Send your CV to hr@victoriasugar.com and we will keep it on file.</div>'; return; }
   grid.innerHTML = data.map(j => {
     const safeId = String(j.id).replace(/'/g, "\\'");
@@ -20,8 +21,7 @@ async function loadJobs() {
       '<p style="color:#6b7280;font-size:.875rem;line-height:1.6;margin-bottom:.5rem;">' + (j.description || '') + '</p>' +
       '<div style="display:flex;gap:.75rem;flex-wrap:wrap;">' +
       (j.location ? '<span style="font-size:.75rem;color:#6b7280;">📍 ' + j.location + '</span>' : '') +
-      (j.type ? '<span style="font-size:.75rem;color:#6b7280;">⏱ ' + j.type + '</span>' : '') +
-      (j.closing_date ? '<span style="font-size:.75rem;color:#6b7280;">Closes: ' + new Date(j.closing_date).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) + '</span>' : '') +
+      (j.deadline ? '<span style="font-size:.75rem;color:#6b7280;">Closes: ' + new Date(j.deadline).toLocaleDateString('en-UG',{day:'numeric',month:'short',year:'numeric'}) + '</span>' : '') +
       '</div></div>' +
       '<div style="flex-shrink:0;">' +
       '<button onclick="applyJob(\'' + safeId + '\',\'' + safeTitle + '\')" class="btn-primary text-sm px-4 py-2">Apply Now</button>' +
