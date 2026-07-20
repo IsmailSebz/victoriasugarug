@@ -20,7 +20,7 @@ async function loadStats() {
   const [newsRes, tendersRes, inqRes, subsRes] = await Promise.all([
     dbAdmin.from('news_articles').select('id', { count: 'exact', head: true }).eq('published', true),
     dbAdmin.from('tenders').select('id', { count: 'exact', head: true }).gte('deadline', now),
-    dbAdmin.from('inquiries').select('id', { count: 'exact', head: true }).eq('status', 'new'),
+    dbAdmin.from('inquiries').select('id', { count: 'exact', head: true }).eq('is_read', false),
     dbAdmin.from('newsletter_subscribers').select('id', { count: 'exact', head: true }),
   ]);
   document.getElementById('stat-news').textContent    = newsRes.count ?? '—';
@@ -45,7 +45,7 @@ async function loadRecentInquiries() {
       '<td style="padding:.625rem .75rem;font-size:.875rem;color:#1f2937;font-weight:500;">' + (i.name || '') + '</td>' +
       '<td style="padding:.625rem .75rem;font-size:.875rem;color:#6b7280;">' + (i.subject || '') + '</td>' +
       '<td style="padding:.625rem .75rem;font-size:.75rem;color:#9ca3af;">' + (i.created_at ? new Date(i.created_at).toLocaleDateString() : '') + '</td>' +
-      '<td style="padding:.625rem .75rem;"><span style="font-size:.6875rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;background:' + (i.status==='new'?'#fef9c3':'#f0f7f1') + ';color:' + (i.status==='new'?'#a16207':'#1b5e20') + ';">' + (i.status || 'new') + '</span></td>' +
+      '<td style="padding:.625rem .75rem;"><span style="font-size:.6875rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;background:' + (!i.is_read?'#fef9c3':'#f0f7f1') + ';color:' + (!i.is_read?'#a16207':'#1b5e20') + ';">' + (!i.is_read?'Unread':'Read') + '</span></td>' +
       '</tr>'
     ).join('') + '</tbody></table>';
 }

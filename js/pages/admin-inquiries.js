@@ -10,17 +10,19 @@ let currentInqId = null;
 async function loadItems() {
   const filter = document.getElementById('status-filter').value;
   let q = dbAdmin.from('inquiries').select('*').order('created_at', {ascending: false}).limit(50);
-  if (filter !== 'all') q = q.eq('status', filter);
-  const { data } = await q;
+  if (filter === 'unread') q = q.eq('is_read', false);
+  if (filter === 'read') q = q.eq('is_read', true);
+  const { data, error } = await q;
+  if (error) console.error('loadItems failed:', error);
   const tb = document.getElementById('inq-body');
   if (!data || !data.length) { tb.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:2rem;color:#9ca3af;">No inquiries found.</td></tr>'; return; }
   tb.innerHTML = data.map(i =>
-    '<tr style="border-top:1px solid #f3f4f6;cursor:pointer;" onclick="viewInquiry('' + i.id + '')">' +
+    '<tr style="border-top:1px solid #f3f4f6;cursor:pointer;" onclick="viewInquiry(\'' + i.id + '\')">' +
     '<td style="padding:.75rem;font-size:.875rem;color:#1f2937;font-weight:500;">' + (i.name||'') + '</td>' +
     '<td style="padding:.75rem;font-size:.875rem;color:#6b7280;">' + (i.email||'') + '</td>' +
     '<td style="padding:.75rem;font-size:.875rem;color:#6b7280;">' + (i.subject||'') + '</td>' +
     '<td style="padding:.75rem;font-size:.75rem;color:#9ca3af;">' + (i.created_at?new Date(i.created_at).toLocaleDateString():'') + '</td>' +
-    '<td style="padding:.75rem;"><span style="font-size:.6875rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;background:' + (i.status==='new'?'#fef9c3':(i.status==='replied'?'#f0f7f1':'#f3f4f6')) + ';color:' + (i.status==='new'?'#a16207':(i.status==='replied'?'#1b5e20':'#6b7280')) + ';">' + (i.status||'new') + '</span></td>' +
+    '<td style="padding:.75rem;"><span style="font-size:.6875rem;font-weight:600;padding:.2rem .5rem;border-radius:2rem;background:' + (!i.is_read?'#fef9c3':'#f0f7f1') + ';color:' + (!i.is_read?'#a16207':'#1b5e20') + ';">' + (!i.is_read?'Unread':'Read') + '</span></td>' +
     '<td style="padding:.75rem;text-align:right;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></td>' +
     '</tr>'
   ).join('');
@@ -40,12 +42,12 @@ async function viewInquiry(id) {
     '<div style="margin-top:1.25rem;"><p style="font-size:.875rem;color:#6b7280;font-weight:500;margin-bottom:.5rem;">Message:</p>' +
     '<div style="background:#f9fafb;border-radius:.5rem;padding:1rem;font-size:.875rem;color:#374151;line-height:1.7;">' + (data.message||'') + '</div></div>';
   document.getElementById('inq-detail').style.display = 'flex';
-  if (data.status === 'new') await dbAdmin.from('inquiries').update({status:'read'}).eq('id', id);
+  if (!data.is_read) await dbAdmin.from('inquiries').update({is_read:true}).eq('id', id);
 }
 
-async function markStatus(status) {
+async function markRead(isRead) {
   if (!currentInqId) return;
-  await dbAdmin.from('inquiries').update({status}).eq('id', currentInqId);
+  await dbAdmin.from('inquiries').update({is_read:isRead}).eq('id', currentInqId);
   document.getElementById('inq-detail').style.display = 'none';
   loadItems();
 }

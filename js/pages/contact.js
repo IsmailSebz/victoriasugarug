@@ -9,7 +9,7 @@ document.getElementById('contact-form').addEventListener('submit', async e => {
   const fd = new FormData(e.target);
   const { error } = await db.from('inquiries').insert([{
     name:fd.get('name'), email:fd.get('email'), phone:fd.get('phone'),
-    subject:fd.get('subject'), message:fd.get('message'), status:'new'
+    subject:fd.get('subject'), message:fd.get('message')
   }]);
   if (error) { err.textContent='Failed to send. Please try WhatsApp.'; err.style.display='block'; }
   else { ok.textContent='Message sent! We will respond within 24 hours.'; ok.style.display='block'; e.target.reset(); }

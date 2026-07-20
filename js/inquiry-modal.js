@@ -60,7 +60,7 @@ function initInquiryModal() {
     errEl.style.display = 'none'; okEl.style.display = 'none'
     btn.disabled = true; btn.textContent = 'Sending...'
     const fd = new FormData(e.target)
-    const data = { name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'), subject: fd.get('subject'), message: fd.get('message'), status: 'new' }
+    const data = { name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'), subject: fd.get('subject'), message: fd.get('message') }
     const { error } = await db.from('inquiries').insert([data])
     if (error) {
       errEl.textContent = 'Failed to send inquiry. Please try WhatsApp instead.'; errEl.style.display = 'block'

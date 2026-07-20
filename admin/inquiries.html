@@ -25,9 +25,8 @@
 <div class="admin-page-header">
   <h1 class="admin-page-title">Inquiries</h1>
   <select id="status-filter" class="form-input admin-inquiries-block">
-    <option value="all">All Statuses</option>
-    <option value="new">New</option><option value="read">Read</option>
-    <option value="replied">Replied</option><option value="closed">Closed</option>
+    <option value="all">All</option>
+    <option value="unread">Unread</option><option value="read">Read</option>
   </select>
 </div>
 <div class="card admin-inquiries-block-2">
@@ -50,9 +49,9 @@
     <h2 class="admin-modal-title">Inquiry Detail</h2>
     <div id="inq-detail-content"></div>
     <div class="admin-inquiries-flex-row">
-      <button onclick="markStatus('replied')" class="btn-primary text-sm px-4 py-2">Mark Replied</button>
-      <button onclick="markStatus('read')" class="btn-secondary text-sm px-4 py-2">Mark Read</button>
-      <button class="admin-inquiries-block-3" onclick="markStatus('closed')">Close</button>
+      <button onclick="markRead(true)" class="btn-primary text-sm px-4 py-2">Mark Read</button>
+      <button onclick="markRead(false)" class="btn-secondary text-sm px-4 py-2">Mark Unread</button>
+      <button class="admin-inquiries-block-3" onclick="document.getElementById('inq-detail').style.display='none'">Close</button>
     </div>
   </div>
 </div>
