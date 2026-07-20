@@ -2,7 +2,8 @@ initNav();initFooter();initInquiryModal();
 
 async function loadDownloads() {
   const grid = document.getElementById('dl-grid');
-  const { data } = await db.from('downloads').select('*').eq('published', true).order('created_at', {ascending: false});
+  const { data, error } = await db.from('downloads').select('*').order('created_at', {ascending: false});
+  if (error) console.error('loadDownloads failed:', error);
   if (!data || !data.length) { grid.innerHTML = '<p class="text-gray-400 text-center py-8">No downloads available yet.</p>'; return; }
   grid.innerHTML = data.map(d =>
     '<div class="card p-6 flex items-center gap-4">' +
@@ -11,7 +12,7 @@ async function loadDownloads() {
     '</div>' +
     '<div style="flex:1;">' +
     '<h3 style="font-weight:600;color:#1f2937;margin-bottom:.125rem;">' + d.title + '</h3>' +
-    '<p style="color:#6b7280;font-size:.8125rem;">' + (d.description || '') + '</p>' +
+    '<p style="color:#6b7280;font-size:.8125rem;">' + (d.category || '') + (d.file_type ? ' · ' + d.file_type.toUpperCase() : '') + '</p>' +
     '</div>' +
     '<a href="' + d.file_url + '" target="_blank" download class="btn-primary text-sm px-4 py-2" style="flex-shrink:0;">Download</a>' +
     '</div>'

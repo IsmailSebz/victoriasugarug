@@ -22,12 +22,12 @@
 </nav>
 <div class="admin-sidebar-footer"><div class="admin-sidebar-label" id="admin-user"></div><button id="logout-btn" class="admin-nav-link w-full"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Log Out</button></div></aside>
 <main class="admin-main"><div class="admin-container"><div class="admin-page-header"><h1 class="admin-page-title">Downloads</h1><button onclick="openModal()" class="btn-primary">+ Add New</button></div>
-<div class="card admin-table-wrap"><table class="admin-table"><thead><tr><th class="admin-table-th">Title</th><th class="admin-table-th">Description</th><th class="admin-table-th">Status</th><th class="admin-table-th-plain"></th></tr></thead><tbody id="items-body"><tr><td class="admin-table-empty" colspan="4">Loading...</td></tr></tbody></table></div>
+<div class="card admin-table-wrap"><table class="admin-table"><thead><tr><th class="admin-table-th">Title</th><th class="admin-table-th">Category</th><th class="admin-table-th-plain"></th></tr></thead><tbody id="items-body"><tr><td class="admin-table-empty" colspan="3">Loading...</td></tr></tbody></table></div>
 <div class="admin-modal-overlay" id="modal-overlay"><div class="admin-modal-box"><button class="admin-modal-close-plain" onclick="closeModal()">&times;</button><h2 class="admin-modal-title" id="modal-title">Add New</h2><form id="item-form"><input type="hidden" name="_id">
 <div class="mb-4"><label class="form-label">Title *</label><input class="form-input" name="title" required></div>
-<div class="mb-4"><label class="form-label">Description</label><textarea class="form-input" name="description" rows="2"></textarea></div>
+<div class="mb-4"><label class="form-label">Category</label><input class="form-input" name="category" placeholder="e.g. Annual Report, Brochure"></div>
 <div class="mb-4"><label class="form-label">File URL *</label><input class="form-input" name="file_url" placeholder="https://media.victoriasugar.ug/docs/..." required></div>
-<div class="admin-downloads-flex-row"><input type="checkbox" name="published" id="f-pub2" checked><label for="f-pub2" class="form-label m-0">Published (visible on site)</label></div>
+<div class="mb-4"><label class="form-label">File Type</label><input class="form-input" name="file_type" placeholder="e.g. pdf, docx"></div>
 <div class="admin-form-error" id="form-error"></div><div class="admin-btn-row"><button type="submit" id="form-submit" class="btn-primary flex-1 justify-center">Save</button><button type="button" onclick="closeModal()" class="btn-secondary">Cancel</button></div></form></div></div>
 </div></main></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
