@@ -12,8 +12,8 @@ async function loadGallery() {
   const { data: al } = await dbAdmin.from('gallery_albums').select('*').eq('is_published', true).order('sort_order', {ascending: true});
   albums = al || [];
   const alEl = document.getElementById('albums-list');
-  alEl.innerHTML = '<button class="album-tab-btn ' + (filterAlbum==='all'?'active-tab':'') + '" onclick="setFilter('all')">All</button>' +
-    albums.map(a => '<button class="album-tab-btn ' + (filterAlbum===a.id?'active-tab':'') + '" onclick="setFilter('' + a.id + '')">' + a.title + '</button>').join('');
+  alEl.innerHTML = '<button class="album-tab-btn ' + (filterAlbum==='all'?'active-tab':'') + '" onclick="setFilter(\'all\')">All</button>' +
+    albums.map(a => '<button class="album-tab-btn ' + (filterAlbum===a.id?'active-tab':'') + '" onclick="setFilter(\'' + a.id + '\')">' + a.title + '</button>').join('');
   // populate select
   const sel = document.getElementById('photo-album-select');
   sel.innerHTML = '<option value="">No album</option>' + albums.map(a => '<option value="' + a.id + '">' + a.title + '</option>').join('');
@@ -29,8 +29,8 @@ async function loadPhotos() {
   grid.innerHTML = data.map(p =>
     '<div style="position:relative;border-radius:.75rem;overflow:hidden;aspect-ratio:1;background:#f3f4f6;">' +
     '<img src="' + (p.thumbnail_url || p.url) + '" style="width:100%;height:100%;object-fit:cover;">' +
-    '<div style="position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .2s;" onmouseover="this.style.background='rgba(0,0,0,.4)'" onmouseout="this.style.background='rgba(0,0,0,0)'">' +
-    '<button onclick="deletePhoto('' + p.id + '')" style="position:absolute;top:.5rem;right:.5rem;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:.375rem;padding:.25rem .625rem;font-size:.75rem;font-weight:500;cursor:pointer;">Delete</button>' +
+    '<div style="position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .2s;" onmouseover="this.style.background=\'rgba(0,0,0,.4)\'" onmouseout="this.style.background=\'rgba(0,0,0,0)\'">' +
+    '<button onclick="deletePhoto(\'' + p.id + '\')" style="position:absolute;top:.5rem;right:.5rem;background:rgba(220,38,38,.9);color:#fff;border:none;border-radius:.375rem;padding:.25rem .625rem;font-size:.75rem;font-weight:500;cursor:pointer;">Delete</button>' +
     (p.title ? '<p style="position:absolute;bottom:.5rem;left:.5rem;right:.5rem;color:#fff;font-size:.75rem;background:rgba(0,0,0,.5);padding:.25rem .5rem;border-radius:.25rem;">' + p.title + '</p>' : '') +
     '</div></div>'
   ).join('');

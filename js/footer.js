@@ -11,7 +11,7 @@ const PARTNER_LINKS = [
 
 const PRODUCT_LINKS = [
   { label: 'Sugar',                href: '/products/sugar.html' },
-  { label: 'Extra Natural Alcohol',href: '/products/alcohol.html' },
+  { label: 'Extra Neutral Alcohol',href: '/products/alcohol.html' },
   { label: 'Ethanol',              href: '/products/ethanol.html' },
   { label: 'Electricity',          href: '/products/electricity.html' },
   { label: 'Bulk Orders',          href: '/bulk-orders.html' },

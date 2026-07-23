@@ -28,7 +28,7 @@ async function loadItems() {
   if (!data || !data.length) { grid.innerHTML = '<div class="col-span-full text-center py-8 text-gray-400">No photos in this album yet.</div>'; return; }
   grid.innerHTML = data.map((item, i) =>
     '<div style="border-radius:.75rem;overflow:hidden;aspect-ratio:1;cursor:pointer;position:relative;" onclick="openLightbox(' + i + ')">' +
-    '<img src="' + (item.thumbnail_url || item.url) + '" alt="' + (item.title || 'Gallery') + '" style="width:100%;height:100%;object-fit:cover;transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">' +
+    '<img src="' + (item.thumbnail_url || item.url) + '" alt="' + (item.title || 'Gallery') + '" class="media-cover-zoom" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'\'">' +
     (item.type === 'video' ? '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.15);pointer-events:none;"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(255,255,255,.9)"><circle cx="12" cy="12" r="11" fill="rgba(15,61,18,.55)"/><polygon points="10,8 17,12 10,16"/></svg></div>' : '') +
     '</div>'
   ).join('');

@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: 'Our Products', href: '/products/', children: [
       { label: 'All Products',         href: '/products/' },
       { label: 'Sugar',                href: '/products/sugar.html' },
-      { label: 'Extra Natural Alcohol',href: '/products/alcohol.html' },
+      { label: 'Extra Neutral Alcohol',href: '/products/alcohol.html' },
       { label: 'Ethanol',              href: '/products/ethanol.html' },
       { label: 'Electricity',          href: '/products/electricity.html' },
   ]},
